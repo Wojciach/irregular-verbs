@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        fetch('table.html').then((response)=> {return response.text();}).then((html)=>{document.getElementById("testdiv").innerHTML = html});
+    </script>
+    <link rel="stylesheet" href="css.css">
+    <body>a
+        <div id="testdiv"></div>
+    </body>
+</html>
