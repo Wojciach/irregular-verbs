@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+    a {
+        display: block;
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+    <body>
+        <div>klik</div>
+    </body>
+
+
+    <script>
+        const workspace = {woda: "kotlet", kalafior: "sarna"};
+        const file = new Blob(
+            [JSON.stringify(workspace)], {type: 'application/json'}
+        );
+        const fileURL = URL.createObjectURL(file);
+    
+        const linkElement = document.createElement("a");
+        linkElement.setAttribute("href", fileURL);
+        linkElement.setAttribute("download", "polypane-workspace.ppws");
+        console.log(linkElement);
+        document.body.appendChild(linkElement);
+    
+    </script>
+
+</html>

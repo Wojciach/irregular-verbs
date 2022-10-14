@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <script>
-        fetch('table.html').then((response)=> {return response.text();}).then((html)=>{document.getElementById("testdiv").innerHTML = html});
+        fetch('table.html')
+          .then((response)=> {return response.text();})
+          .then((html)=>{document.getElementById("testdiv").innerHTML = html})
+          .then(() =>{ console.log(document.querySelectorAll("tr").length)});
     </script>
     <link rel="stylesheet" href="css.css">
+    <style>
+       
+    </style>
     <body>a
-        <div id="testdiv"></div>
+        <div id="testdiv">wodawoda</div>
+        <div id="testdiv2">wodawoda2</div>
     </body>
+    <script>;</script>
 </html>

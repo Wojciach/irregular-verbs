@@ -31,7 +31,7 @@ function includeHTML() {
     var input, filter, table, tr, td1, td2, td3, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    table = document.getElementById("customers");
+    table = document.getElementById("verbstable");
     tr = table.getElementsByTagName("tr");
   
     // Loop through all table rows, and hide those who don't match the search query
@@ -40,18 +40,20 @@ function includeHTML() {
       td2 = tr[i].getElementsByTagName("td")[1];
       td3 = tr[i].getElementsByTagName("td")[2]; 
 
-       tdText = td1.innerText + td2.innerText + td3.innerText;
-
+       tdText = td1.innerText + " "  + td2.innerText + " " + td3.innerText;
+      
       if (tdText) {
         
         if (tdText.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
+          tr[i].classList.add("zebra");
+          
         } else {
           tr[i].style.display = "none";
+          tr[i].classList.remove("zebra");
         }
       }
-    }
-
+    } 
   }
 
   
