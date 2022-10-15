@@ -27,7 +27,16 @@
         <p>List of irregular verbs in english language.</p>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a verb...">
 
-        <div w3-include-html="table.html">  </div>
+        <table id="verbstable">
+            <thead>
+            <tr>
+            <th>Base Form</th>
+            <th>Past Simple (V2)</th>
+            <th>Past Participle (V3)</th>
+            </tr>
+            </thead>
+
+            <tbody w3-include-html="table.html">  </tbody>
     </main>
 
 </body>
