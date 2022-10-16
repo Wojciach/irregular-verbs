@@ -71,7 +71,7 @@
 
         </style>
 
-    <body>
+    <body onclick="compTag()">
         <div id="mother">
             <div>
                 <table id="verbstable">
@@ -93,7 +93,38 @@
 
         fetch('tablePlusFull.html')
           .then((response)=> {return response.text();})
-          .then((html)=>{document.getElementById("testtab2").innerHTML = html});  
+          .then((html)=>{document.getElementById("testtab2").innerHTML = html});
+
+
+
+        function compTag(){
+          const table1rows = document.querySelectorAll("#testtab > tr");
+          const table2rows = document.querySelectorAll("#testtab2 > tr");
+          var exist = 0;
+          var nonExist = 0;
+          // console.log(table1rows[0].cells[0].firstChild.nodeValue);
+
+          for(i=0; i<=table2rows.length-1; i++) {
+            var wordCompareTo = table2rows[i].cells[0].firstChild.nodeValue;
+            var existence = false;
+                for(j=0; j<=table1rows.length-1; j++) {
+                    var comparisonWord = table1rows[j].cells[0].firstChild.nodeValue;
+                    if (wordCompareTo == comparisonWord) {
+                        table2rows[i].style.color = "blue";    
+                        exist++;
+                        existence = true;
+                    }
+                }
+                if(existence == false) nonExist++;
+          }
+
+
+          console.log("exist: " + exist);
+          console.log("nonExist: " + nonExist);
+          console.log("sum: " + (nonExist + exist));
+          console.log("table 2 number of rows: " + table2rows.length);
+          
+        }
 
     </script>
 
