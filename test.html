@@ -87,6 +87,8 @@
     </body>
 
     <script>
+
+
         fetch('tableFull.html')
           .then((response)=> {return response.text();})
           .then((html)=>{document.getElementById("testtab").innerHTML = html});
@@ -98,7 +100,7 @@
 
 
         function compTag(){
-          const table1rows = document.querySelectorAll("#testtab > tr");
+          var table1rows = document.querySelectorAll("#testtab > tr");
           const table2rows = document.querySelectorAll("#testtab2 > tr");
           var exist = 0;
           var nonExist = 0;
@@ -110,21 +112,73 @@
                 for(j=0; j<=table1rows.length-1; j++) {
                     var comparisonWord = table1rows[j].cells[0].firstChild.nodeValue;
                     if (wordCompareTo == comparisonWord) {
-                        table2rows[i].style.color = "blue";    
+                        table2rows[i].classList.add("tier-4");    
                         exist++;
                         existence = true;
                     }
                 }
                 if(existence == false) nonExist++;
+                if (!table2rows[i].classList.contains("tier-4")) table2rows[i].classList.add("tier-5");
           }
 
+          report();
+          
+          
+    bringTable('tableMedium.html', 'tier-3');
 
+    function bringTable(tableName, tierName){
+          fetch(tableName)
+          .then((response)=> {return response.text();})
+          .then((html)=>{document.getElementById("testtab").innerHTML = html})
+          .then(()=>{
+
+          table1rows = document.querySelectorAll("#testtab > tr");
+          console.log("LENGTH: " + table1rows.length);
+          exist = 0;
+          nonExist = 0;
+
+          
+          for(i=0; i<=table2rows.length-1; i++) {
+            var wordCompareTo = table2rows[i].cells[0].firstChild.nodeValue;
+            var existence = false;
+                for(j=0; j<=table1rows.length-1; j++) {
+                    var comparisonWord = table1rows[j].cells[0].firstChild.nodeValue;
+                    if (wordCompareTo == comparisonWord) {
+                        table2rows[i].className = "";
+                        table2rows[i].classList.add(tierName);    
+                        exist++;
+                        existence = true;
+                    }
+                }
+                if(existence == false) nonExist++;
+                
+          }
+
+            report();
+          
+        })
+       
+    }
+
+        function report(){
           console.log("exist: " + exist);
           console.log("nonExist: " + nonExist);
           console.log("sum: " + (nonExist + exist));
           console.log("table 2 number of rows: " + table2rows.length);
-          
+          console.log("table 1 number of rows: " + table1rows.length);
+          console.log("LENGTH: " + table1rows.length);
+          console.log("tier-5: " + document.querySelectorAll(".tier-5").length);
+          console.log("tier-4: " + document.querySelectorAll(".tier-4").length);
+          console.log("tier-3: " + document.querySelectorAll(".tier-3").length);
+          console.log("tier-2: " + document.querySelectorAll(".tier-2").length);
+          console.log("tier-1: " + document.querySelectorAll(".tier-1").length);
         }
+
+
+        }
+
+        
+        
 
     </script>
 
