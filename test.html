@@ -97,14 +97,19 @@
           .then((response)=> {return response.text();})
           .then((html)=>{document.getElementById("testtab2").innerHTML = html});
 
+          var exist = 0;
+          var nonExist = 0;
+
+          var table1rows;
+          var table2rows;
 
 
         function compTag(){
-          var table1rows = document.querySelectorAll("#testtab > tr");
-          const table2rows = document.querySelectorAll("#testtab2 > tr");
-          var exist = 0;
-          var nonExist = 0;
-          // console.log(table1rows[0].cells[0].firstChild.nodeValue);
+
+             table1rows = document.querySelectorAll("#testtab > tr");
+           table2rows = document.querySelectorAll("#testtab2 > tr");
+
+
 
           for(i=0; i<=table2rows.length-1; i++) {
             var wordCompareTo = table2rows[i].cells[0].firstChild.nodeValue;
@@ -122,9 +127,11 @@
           }
 
           report();
+          exist = 0;
+          nonExist = 0;
+        }
           
-          
-    bringTable('tableMedium.html', 'tier-3');
+   // bringTable('tableMedium.html', 'tier-3');
 
     function bringTable(tableName, tierName){
           fetch(tableName)
@@ -133,7 +140,6 @@
           .then(()=>{
 
           table1rows = document.querySelectorAll("#testtab > tr");
-          console.log("LENGTH: " + table1rows.length);
           exist = 0;
           nonExist = 0;
 
@@ -175,7 +181,7 @@
         }
 
 
-        }
+        
 
         
         
