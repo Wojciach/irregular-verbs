@@ -47,13 +47,29 @@ function includeHTML() {
         if (tdText.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
           tr[i].classList.add("zebra");
+          if (input.value == "") {tr[i].classList.remove("zebra");}
           
         } else {
           tr[i].style.display = "none";
           tr[i].classList.remove("zebra");
         }
       }
-    } 
+    } if (input.value == "") {}
+  }
+
+  function viz(id) {
+    var input = document.getElementById(id);
+    var selected = document.getElementsByClassName(input.value);
+
+    for(i=0; i<=(selected.length-1); i++) {
+      input.checked ? selected[i].style.display = "" : selected[i].style.display = "none";
+     
+    }
+      
+   
+
+    
+
   }
 
   

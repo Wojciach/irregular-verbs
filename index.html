@@ -25,6 +25,22 @@
     <main>
         <h1>Irregular Verbs</h1>
         <p>List of irregular verbs in english language.</p>
+
+            <input onclick="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
+            <label for="tier-1-in"> TIER 1 LABEL</label>
+
+            <input onclick="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
+            <label for="tier-2-in"> TIER 2 LABEL</label>
+
+            <input onclick="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
+            <label for="tier-3-in"> TIER 3 LABEL</label>
+
+            <input onclick="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
+            <label for="tier-4-in"> TIER 4 LABEL</label>
+
+            <input onclick="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
+            <label for="tier-5-in"> TIER 5 LABEL</label>
+
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a verb...">
 
         <table id="verbstable">
@@ -36,7 +52,7 @@
             </tr>
             </thead>
 
-            <tbody w3-include-html="tableMedium.html">  </tbody>
+            <tbody w3-include-html="BASETABLE.html">  </tbody>
     </main>
 
 </body>
