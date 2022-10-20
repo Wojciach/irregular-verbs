@@ -2,8 +2,6 @@
 <html lang="en">
 
 
-    <!-- <link rel="stylesheet" href="css.css"> -->
-
     <style>
         main {
             font-family: Arial, Helvetica, sans-serif;
@@ -29,7 +27,7 @@
           #verbstable td, #verbstable th,
           #verbstable2 td, #verbstable2 th {
               border: 1px solid #ddd;
-              padding: 8px;
+              padding: 8px; 
             }
             
             #verbstable tr:nth-child(even),
@@ -59,19 +57,18 @@
 
             #mother div
             {
-                
                 width: 40%;
+                right: 0;
             }
             #mother div:first-child
-            {
-                
+            {   
                 width: 40%;
                 background-color: brown;
             }
 
         </style>
 
-    <body onclick="compTag()">
+    <body>
         <div id="mother">
             <div>
                 <table id="verbstable">
@@ -87,22 +84,35 @@
     </body>
 
     <script>
+
+          var exist = 0;
+          var nonExist = 0;
+
+          var table1rows;
+          var table2rows;
+
+       
+        
         fetch('tableFull.html')
           .then((response)=> {return response.text();})
           .then((html)=>{document.getElementById("testtab").innerHTML = html});
 
         fetch('tablePlusFull.html')
           .then((response)=> {return response.text();})
-          .then((html)=>{document.getElementById("testtab2").innerHTML = html});
-
+          .then((html)=>{document.getElementById("testtab2").innerHTML = html})
+          .then(compTag)
+          .then(()=>{bringTable('tableMedium.html', 'tier-3');})
+          .then(()=>{bringTable('tableShort.html', 'tier-2');})
+          .then(()=>{bringTable('tableVeryShort.html', 'tier-1');});
+            
 
 
         function compTag(){
-          const table1rows = document.querySelectorAll("#testtab > tr");
-          const table2rows = document.querySelectorAll("#testtab2 > tr");
-          var exist = 0;
-          var nonExist = 0;
-          // console.log(table1rows[0].cells[0].firstChild.nodeValue);
+
+            table1rows = document.querySelectorAll("#testtab > tr");
+            table2rows = document.querySelectorAll("#testtab2 > tr");
+
+
 
           for(i=0; i<=table2rows.length-1; i++) {
             var wordCompareTo = table2rows[i].cells[0].firstChild.nodeValue;
@@ -110,21 +120,70 @@
                 for(j=0; j<=table1rows.length-1; j++) {
                     var comparisonWord = table1rows[j].cells[0].firstChild.nodeValue;
                     if (wordCompareTo == comparisonWord) {
-                        table2rows[i].style.color = "blue";    
+                        table2rows[i].classList.add("tier-4");    
                         exist++;
                         existence = true;
                     }
                 }
                 if(existence == false) nonExist++;
+                if (!table2rows[i].classList.contains("tier-4")) table2rows[i].classList.add("tier-5");
           }
 
+          report();
 
+        }
+   
+
+    function bringTable(tableName, tierName){
+          fetch(tableName)
+          .then((response)=> {return response.text();})
+          .then((html)=>{document.getElementById("testtab").innerHTML = html})
+          .then(()=>{
+
+          table1rows = document.querySelectorAll("#testtab > tr");
+          exist = 0;
+          nonExist = 0;
+
+          
+          for(i=0; i<=table2rows.length-1; i++) {
+            var wordCompareTo = table2rows[i].cells[0].firstChild.nodeValue;
+            var existence = false;
+                for(j=0; j<=table1rows.length-1; j++) {
+                    var comparisonWord = table1rows[j].cells[0].firstChild.nodeValue;
+                    if (wordCompareTo == comparisonWord) {
+                        table2rows[i].className = "";
+                        table2rows[i].classList.add(tierName);    
+                        exist++;
+                        existence = true;
+                    }
+                }
+                if(existence == false) nonExist++;
+                
+          }
+
+            report();
+          
+        })
+       
+    }
+
+        function report(){
+          console.log("--- REPORT'S START: ---");
           console.log("exist: " + exist);
           console.log("nonExist: " + nonExist);
           console.log("sum: " + (nonExist + exist));
           console.log("table 2 number of rows: " + table2rows.length);
-          
+          console.log("table 1 number of rows: " + table1rows.length);
+          console.log("tier-5: " + document.querySelectorAll(".tier-5").length);
+          console.log("tier-4: " + document.querySelectorAll(".tier-4").length);
+          console.log("tier-3: " + document.querySelectorAll(".tier-3").length);
+          console.log("tier-2: " + document.querySelectorAll(".tier-2").length);
+          console.log("tier-1: " + document.querySelectorAll(".tier-1").length);
+          console.log("//// REPORT'S END: ////");
+          exist = 0;
+          nonExist = 0;
         }
+
 
     </script>
 
