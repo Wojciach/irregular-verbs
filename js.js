@@ -1,3 +1,5 @@
+
+
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */
@@ -18,12 +20,13 @@ function includeHTML() {
             includeHTML();
           }
         }
+        xhttp.addEventListener("load", loading); //adding tier-checked and contains-filter to every tr element
         xhttp.open("GET", file, true);
         xhttp.send();
         /* Exit the function: */
         return;
       }
-    } 
+    }
   }
 
   function myFunction() {
@@ -45,31 +48,53 @@ function includeHTML() {
       if (tdText) {
         
         if (tdText.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-          tr[i].classList.add("zebra");
-          if (input.value == "") {tr[i].classList.remove("zebra");}
+
+          tr[i].classList.add("contains-filter");
           
         } else {
-          tr[i].style.display = "none";
-          tr[i].classList.remove("zebra");
+
+          tr[i].classList.remove("contains-filter");
         }
       }
-    } if (input.value == "") {}
+    } 
   }
 
   function viz(id) {
     var input = document.getElementById(id);
     var selected = document.getElementsByClassName(input.value);
 
+    
     for(i=0; i<=(selected.length-1); i++) {
-      input.checked ? selected[i].style.display = "" : selected[i].style.display = "none";
+
+        if (input.checked) {
+          selected[i].style.display = "";
+          selected[i].classList.add("tier-checked");
+
+        }
+        else { 
+          selected[i].style.display = "none";
+          selected[i].classList.remove("tier-checked");
+      }
      
     }
-      
-   
-
-    
 
   }
+
+  function loading() {
+
+    var allTr = document.querySelectorAll('tr');
+
+    for(i=0; i<=allTr.length-1; i++) {
+        allTr[i].classList.add("tier-checked");
+        allTr[i].classList.add("contains-filter");
+    }
+  }
+
+
+  
+
+
+
+
 
   
