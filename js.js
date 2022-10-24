@@ -1,35 +1,24 @@
 
 
 function includeHTML() {
-    var z, i, elmnt, file, xhttp;
-    /* Loop through a collection of all HTML elements: */
-    z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
-      elmnt = z[i];
-      /*search for elements with a certain atrribute:*/
-      file = elmnt.getAttribute("w3-include-html");
-      if (file) {
-        /* Make an HTTP request using the attribute value as the file name: */
+        var elmnt = document.querySelector("#verbstable tbody");
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4) {
             if (this.status == 200) {elmnt.innerHTML = this.responseText;}
             if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-            /* Remove the attribute, and call this function once more: */
-            elmnt.removeAttribute("w3-include-html");
-            includeHTML();
+
           }
         }
         xhttp.addEventListener("load", loading); //adding tier-checked and contains-filter to every tr element
-        xhttp.open("GET", file, true);
+        xhttp.open("GET", "BASETABLE.html", true);
         xhttp.send();
         /* Exit the function: */
         return;
       }
-    }
-  }
 
-  function myFunction() {
+
+  function searchFunction() {
     // Declare variables
     var input, filter, table, tr, td1, td2, td3, i;
     input = document.getElementById("myInput");
@@ -62,17 +51,18 @@ function includeHTML() {
   function viz(id) {
     var input = document.getElementById(id);
     var selected = document.getElementsByClassName(input.value);
-
+    input.parentElement.classList.toggle('label-tier-checked');
     
     for(i=0; i<=(selected.length-1); i++) {
+      
 
         if (input.checked) {
-          selected[i].style.display = "";
+
           selected[i].classList.add("tier-checked");
 
         }
         else { 
-          selected[i].style.display = "none";
+
           selected[i].classList.remove("tier-checked");
       }
      
@@ -89,6 +79,8 @@ function includeHTML() {
         allTr[i].classList.add("contains-filter");
     }
   }
+
+
 
 
   

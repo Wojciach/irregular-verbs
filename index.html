@@ -45,7 +45,7 @@
 
         </div>
 
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a verb...">
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a verb...">
 
         <table id="verbstable">
             <thead>
@@ -56,16 +56,12 @@
             </tr>
             </thead>
 
-            <tbody w3-include-html="BASETABLE.html">  </tbody>
+            <tbody>  </tbody>
     </main>
 
 </body>
 
+<script>includeHTML();</script>
 
-<script>
-    includeHTML();
-
-
-    </script>
 
 </html>
