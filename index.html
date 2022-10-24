@@ -18,30 +18,34 @@
 </head>
 
 
-
-
 <body>
     
     <main>
         <h1>Irregular Verbs</h1>
         <p>List of irregular verbs in english language.</p>
 
-            <input onclick="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
-            <label for="tier-1-in"> TIER 1 LABEL</label>
+        <div id="tier-inputs">
+            
+                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
+                TIER 1 LABEL</label>
+            
+                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
+                TIER 2 LABEL</label>
+                
+                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
+                TIER 3 LABEL</label>
 
-            <input onclick="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
-            <label for="tier-2-in"> TIER 2 LABEL</label>
+                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
+                TIER 4 LABEL</label>
 
-            <input onclick="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
-            <label for="tier-3-in"> TIER 3 LABEL</label>
+                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
+                TIER 5 LABEL</label>
 
-            <input onclick="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
-            <label for="tier-4-in"> TIER 4 LABEL</label>
+        </div>
 
-            <input onclick="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
-            <label for="tier-5-in"> TIER 5 LABEL</label>
+        </div>
 
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a verb...">
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for a verb...">
 
         <table id="verbstable">
             <thead>
@@ -52,14 +56,12 @@
             </tr>
             </thead>
 
-            <tbody w3-include-html="BASETABLE.html">  </tbody>
+            <tbody>  </tbody>
     </main>
 
 </body>
 
+<script>includeHTML();</script>
 
-<script>
-    includeHTML();
-    </script>
 
 </html>
