@@ -16,7 +16,8 @@ function includeHTML() {
         /* Exit the function: */
         return;
       }
-
+      
+/*
 
   function searchFunction() {
     // Declare variables
@@ -46,6 +47,28 @@ function includeHTML() {
         }
       }
     } 
+  } */
+
+  function search() {
+
+   var input = document.getElementById("myInput");
+   var filter = input.value.toUpperCase();
+   var table = document.getElementById("verbstable");
+   var tr = table.getElementsByTagName("tr");
+   
+
+    for(i=1; i < tr.length; i++){
+      for(j=0; j < tr[i].children.length; j++) {
+        var tableData = tr[i].children[j].innerText;
+        if(tableData.toUpperCase().indexOf(filter) > -1) {
+          tr[i].classList.add("contains-filter");
+          break;
+        } else {
+          tr[i].classList.remove("contains-filter");
+        }
+      }
+    }
+
   }
 
   function viz(id) {
