@@ -21,29 +21,41 @@
 <body>
     
     <main>
+
         <h1>Irregular Verbs</h1>
         <p>List of irregular verbs in english language.</p>
 
-        <div id="tier-inputs">
-            
-                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
-                TIER 1 LABEL</label>
-            
-                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
-                TIER 2 LABEL</label>
+        <section>
+
+            <div id="tier-inputs">
                 
-                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
-                TIER 3 LABEL</label>
+                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
+                    Level 1</label>
+                
+                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
+                    Level 2</label>
+                    
+                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
+                    Level 3</label>
 
-                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
-                TIER 4 LABEL</label>
+                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
+                    Level 4</label>
 
-                <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
-                TIER 5 LABEL</label>
+                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
+                    Level 5</label>
 
-        </div>
+            </div>
 
-        </div>
+            <div id="lvlDescriptions">
+                <p id="tier-1"> This describes lvl 1</p>
+                <p id="tier-2"> This describes lvl 2</p>
+                <p id="tier-3"> This describes lvl 3</p>
+                <p id="tier-4"> This describes lvl 4</p>
+                <p id="tier-5"> This describes lvl 5</p>
+
+            </div>
+
+        </section>
 
         <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
 
@@ -61,7 +73,10 @@
 
 </body>
 
-<script>includeHTML();</script>
+<script>
+    includeHTML();
+    lablab();
+</script>
 
 
 </html>

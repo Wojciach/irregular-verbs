@@ -29,11 +29,9 @@ h1{
     width: 33%;
   }
   
-  #verbstable tr:nth-child(even).tier-checked.contains-filter {background-color: #c8e5f3;} 
- 
-  #verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
+#verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
 
-  #verbstable th {
+#verbstable th {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #2b4757;
@@ -41,7 +39,7 @@ h1{
   }
 
   
-  #myInput {
+#myInput {
     background-image: url("img/svgsearch.svg"); /* Add a search icon to input */
     background-position: 0px 0px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
@@ -55,7 +53,7 @@ h1{
     
   }
 
-  #tier-inputs {
+#tier-inputs {
 
     display: flex;
     width: 100%;
@@ -73,8 +71,8 @@ h1{
     border: 3px solid hsla(200, 100%, 35%, 1);
     border-radius: 15px;
     justify-content: center;
-
   }
+
   #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
   #tier-inputs label:nth-child(2) {background-color: hsla(200, 40%, 80%, 1);} 
   #tier-inputs label:nth-child(3) {background-color: hsla(200, 60%, 70%, 1);}
@@ -86,8 +84,6 @@ h1{
   #tier-inputs label:nth-child(3).label-tier-checked {background-color: hsla(200, 60%, 70%, 0);}
   #tier-inputs label:nth-child(4).label-tier-checked {background-color: hsla(200, 80%, 60%, 0);}
   #tier-inputs label:nth-child(5).label-tier-checked {background-color: hsla(200, 100%, 50%, 0);} 
-
-  
 
   #tier-inputs label input {
     align-self: center;
@@ -104,6 +100,14 @@ h1{
   tr:not(.tier-checked), tr:not(.contains-filter) {
     display: none;
   }
+
+  #verbstable tr.tier-checked.contains-filter:nth-child(even) {background-color: #c8e5f3 !important} 
+
+  #lvlDescriptions p {
+    display: none;
+  }
+
+  
 
 
 
