@@ -31,6 +31,10 @@ h1{
   
 #verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
 
+label:active {
+  transform: translate(1px, 1px);
+}
+
 #verbstable th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -71,6 +75,7 @@ h1{
     border: 3px solid hsla(200, 100%, 35%, 1);
     border-radius: 15px;
     justify-content: center;
+    cursor: pointer;
   }
 
   #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
@@ -91,8 +96,8 @@ h1{
     margin-right:auto;
     display: block;
     accent-color: hsla(200, 100%, 25%, 1);  
-    width: 20px; 
-    height: 20px;
+    width: 23px; 
+    height: 23px;
     
   }
 
@@ -101,11 +106,16 @@ h1{
     display: none;
   }
 
-  #verbstable tr.tier-checked.contains-filter:nth-child(even) {background-color: #c8e5f3 !important} 
+  /* #verbstable tr.tier-checked.contains-filter:nth-child(even) {background-color: #c8e5f3 !important}  */
 
   #lvlDescriptions p {
     display: none;
+    text-align: center;
   }
+
+.zebra {
+  background-color: hsla(200, 70%, 90%, 1);
+}
 
   
 

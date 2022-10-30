@@ -35,7 +35,7 @@ function includeHTML() {
           tr[i].classList.remove("contains-filter");
         }
       }
-    }
+    } doZebra();
   }
 
 
@@ -51,7 +51,7 @@ function includeHTML() {
         } else { 
           selected[i].classList.remove("tier-checked");
         }
-    }
+    } doZebra()
   }
 
   
@@ -63,9 +63,10 @@ function includeHTML() {
         allTr[i].classList.add("tier-checked");
         allTr[i].classList.add("contains-filter");
     }
+    doZebra();
   }
 
-  function lablab() {
+  function labDescShow() {
 
     var labels = document.querySelectorAll('label');
     labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{showDescription(event);});
@@ -83,11 +84,14 @@ function showDescription(e) {
 
 }
 
-function hideDescription(e) {
+function doZebra() {
+  var zebra = document.querySelectorAll('.tier-checked.contains-filter');
+  
+  for(i=0; i<=zebra.length-1; i++){
+    if(i%2==0) zebra[i].classList.add('zebra');
+    if(i%2==1) zebra[i].classList.remove('zebra');
 
-  var elementToShow = document.getElementById(e.target.firstChild.value);
-
-  elementToShow.style.display = "none";
+  }
 
 }
 
