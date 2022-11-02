@@ -69,9 +69,11 @@ function includeHTML() {
   function labDescShow() {
 
     var labels = document.querySelectorAll('label');
-    labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{showDescription(event);});
+    labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{/*showDescription(event);*/ addInfo(event);});
                                /* element.addEventListener('mouseleave', (event)=>{hideDescription(event);}) */
     });
+
+
   
   }
 
@@ -93,6 +95,24 @@ function doZebra() {
 
   }
 
+  document.getElementsByTagName('span')[1].innerHTML = zebra.length -1;
+
+}
+
+function addInfo(e){
+
+  var allVisible =  document.querySelectorAll('.tier-checked.contains-filter');
+  var description = document.getElementById('desc');
+
+  var span1 = description.getElementsByTagName('span')[0];
+  var span2 = description.getElementsByTagName('span')[1];
+
+  span1.innerHTML = e.target.innerText;
+  span2.innerHTML = allVisible.length -1;
+
+  description.style.display = "block";
+  
+  //console.log(span1.innerText);
 }
 
 

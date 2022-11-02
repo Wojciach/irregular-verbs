@@ -3,71 +3,78 @@
 }
 html {
   box-sizing: border-box;
+  text-align: center;
 }
 
-main {
+body {
   font-family: Arial, Helvetica, sans-serif;
   max-width: 800px;
   margin: auto;
+  padding: 0 10px;
 }
 
-h1{
-  text-align: center;
+h1 {
   color: #2b4757;
 }
 
-#verbstable {
-    text-align: center;
+section {margin: 0;}
+
+#description {text-align: justify;}
+
+  section p {
+    display: block;
+    padding: 15px;
+    background-color: hsla(200, 15%, 95%, 1);
+    border: 2px solid hsla(200, 30%, 65%, 1);
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #verbstable {
     border-collapse: collapse; 
     width: 100%;
-    max-width: 800px;
+    transition: all 1s;
   }
  
-#verbstable td, #verbstable th {
+  #verbstable td, #verbstable th {
     border: 1px solid #ddd;
     padding: 8px;
     width: 33%;
   }
   
-#verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
+  #verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
 
-label:active {
+  label:active {
   transform: translate(1px, 1px);
-}
+  }
 
-#verbstable th {
+  #verbstable th {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #2b4757;
     color: #c8e5f3;
   }
 
-  
-#myInput {
+  #myInput {
     background-image: url("img/svgsearch.svg"); /* Add a search icon to input */
     background-position: 0px 0px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
     width: 100%; /* Full-width */
-    max-width: 800px;
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
     border-radius: 20px;
-    margin-bottom: 12px; /* Add some space below the input */
-    
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
 
-#tier-inputs {
-
+  #tier-inputs {
     display: flex;
     width: 100%;
-    text-align: center;
-    margin-bottom: 14px;
   }
 
-
   #tier-inputs label {
-    
     display: inline-block;
     padding: 5px;
     margin: 0 2px;
@@ -78,17 +85,15 @@ label:active {
     cursor: pointer;
   }
 
+  #tier-inputs label:hover {background-color: hsla(200, 15%, 95%, 1) !important;}
+
   #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
   #tier-inputs label:nth-child(2) {background-color: hsla(200, 40%, 80%, 1);} 
   #tier-inputs label:nth-child(3) {background-color: hsla(200, 60%, 70%, 1);}
   #tier-inputs label:nth-child(4) {background-color: hsla(200, 80%, 60%, 1);}
   #tier-inputs label:nth-child(5) {background-color: hsla(200, 100%, 50%, 1);} 
 
-  #tier-inputs label:nth-child(1).label-tier-checked {background-color: hsla(200, 20%, 90%, 0);} 
-  #tier-inputs label:nth-child(2).label-tier-checked {background-color: hsla(200, 40%, 80%, 0);} 
-  #tier-inputs label:nth-child(3).label-tier-checked {background-color: hsla(200, 60%, 70%, 0);}
-  #tier-inputs label:nth-child(4).label-tier-checked {background-color: hsla(200, 80%, 60%, 0);}
-  #tier-inputs label:nth-child(5).label-tier-checked {background-color: hsla(200, 100%, 50%, 0);} 
+  #tier-inputs label.label-tier-checked {background-color: hsla(200, 20%, 90%, 0);} 
 
   #tier-inputs label input {
     align-self: center;
@@ -98,24 +103,15 @@ label:active {
     accent-color: hsla(200, 100%, 25%, 1);  
     width: 23px; 
     height: 23px;
-    
   }
 
-
-  tr:not(.tier-checked), tr:not(.contains-filter) {
+  tr:not(.tier-checked), tr:not(.contains-filter), #lvlDescriptions p {
     display: none;
   }
 
-  /* #verbstable tr.tier-checked.contains-filter:nth-child(even) {background-color: #c8e5f3 !important}  */
-
-  #lvlDescriptions p {
-    display: none;
-    text-align: center;
+  .zebra {
+    background-color: hsla(200, 70%, 90%, 1);
   }
-
-.zebra {
-  background-color: hsla(200, 70%, 90%, 1);
-}
 
   
 
