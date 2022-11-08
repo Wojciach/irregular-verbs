@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Irregular Verbs Quiz</title>
+<meta charset="UTF-8">
+<meta name="description" content="List of irregular verbs in english grammar">
+<meta name="keywords" content="irregular verbs, english, grammar, list, table, past simple, past participle, base form">
+<meta name="author" content="WojciechWWW">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="shortcut icon" type="image/x-icon" href="img/svgsearch.svg">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--
+
+<link rel="stylesheet" href="quizCss.css">
+<script src="quizJs.js"></script>
+-->
+</head>
+
+<style>
+
+body{
+  margin: 0;
+}
+
+main {
+  display: flex;
+  position: fixed;
+  margin: auto;
+  align-self: center;
+  
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  border-radius: 14px;
+}
+
+section {
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  background-color: brown;
+  margin: 30px;
+}
+
+</style>
+
+
+<body>
+
+    <main ng-app="myApp" ng-controller="customersCtrl">
+      
+      <div ng-hide="true" ng-include="'BASETABLE.html'"></div>
+        
+        <section>Hello {{myData}}</section>
+
+    </div>
+    
+
+
+</body>
+
+<script>
+
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+    $scope.myData = 'xxx';
+  });
+
+</script>
+
+
+
+</html>

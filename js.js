@@ -76,7 +76,7 @@ function includeHTML() {
 
   
   }
-
+/*
 function showDescription(e) {
   var elemetToHide = document.querySelectorAll('#lvlDescriptions p');
   elemetToHide.forEach(el => el.style.display = "none");
@@ -85,7 +85,7 @@ function showDescription(e) {
   elementToShow.style.display = "block";
 
 }
-
+*/
 function doZebra() {
   var zebra = document.querySelectorAll('.tier-checked.contains-filter');
   
@@ -96,23 +96,24 @@ function doZebra() {
   }
 
   document.getElementsByTagName('span')[1].innerHTML = zebra.length -1;
+ 
 
 }
 
 function addInfo(e){
 
   var allVisible =  document.querySelectorAll('.tier-checked.contains-filter');
-  var description = document.getElementById('desc');
 
-  var span1 = description.getElementsByTagName('span')[0];
-  var span2 = description.getElementsByTagName('span')[1];
+  var LvlName = document.getElementById('lvlDescription');
+  var tablQuantity = document.getElementById('tablDescription');
 
-  span1.innerHTML = e.target.innerText;
-  span2.innerHTML = allVisible.length -1;
+  LvlName.querySelector('span').innerHTML = e.target.innerText;
+  tablQuantity.querySelector('span').innerHTML = allVisible.length -1;
 
-  description.style.display = "block";
+  document.getElementById('lvlDescription').style.display = "block";
+  document.getElementById('tablDescription').style.display = "block";
   
-  //console.log(span1.innerText);
+  console.log(e.target.innerText);
 }
 
 

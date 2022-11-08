@@ -21,17 +21,24 @@ section {margin: 0;}
 
 #description {text-align: justify;}
 
-  section p {
-    display: block;
-    padding: 15px;
+p{display: inherit;}
+
+#lvlDescription, #tablDescription {
+    display: none;
+    
     background-color: hsla(200, 15%, 95%, 1);
     border: 2px solid hsla(200, 30%, 65%, 1);
-    border-radius: 15px;
-    margin-top: 10px;
+    border-radius: 0 0 15px 15px;
+    margin-top: 2px;
     margin-bottom: 10px;
+  }
+  #tablDescription {
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 2px;
   }
 
   #verbstable {
+    position: relative;
     border-collapse: collapse; 
     width: 100%;
     transition: all 1s;
@@ -80,10 +87,13 @@ section {margin: 0;}
     margin: 0 2px;
     width: 20%; 
     border: 3px solid hsla(200, 100%, 35%, 1);
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     justify-content: center;
     cursor: pointer;
   }
+
+  
+
 
   #tier-inputs label:hover {background-color: hsla(200, 15%, 95%, 1) !important;}
 
@@ -105,12 +115,28 @@ section {margin: 0;}
     height: 23px;
   }
 
-  tr:not(.tier-checked), tr:not(.contains-filter), #lvlDescriptions p {
+  tr:not(.tier-checked), tr:not(.contains-filter){
     display: none;
   }
 
   .zebra {
     background-color: hsla(200, 70%, 90%, 1);
+  }
+
+
+  thead::before {
+    transform-origin: 100% 100%;
+    transform: rotate(90deg);
+    right: 0;
+    position: absolute;
+    display: block;
+    content: "now table has";
+    height: 50px;
+    width: 120px;
+    background-color: red;
+    
+
+
   }
 
   
