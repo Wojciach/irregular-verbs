@@ -25,16 +25,16 @@ p{display: inherit;}
 
 #lvlDescription, #tablDescription {
     display: none;
-    
     background-color: hsla(200, 15%, 95%, 1);
     border: 2px solid hsla(200, 30%, 65%, 1);
     border-radius: 0 0 15px 15px;
-    margin-top: 2px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
   }
   #tablDescription {
+    background-color: hsla(200, 44%, 80%, 1);
     border-radius: 15px 15px 0 0;
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
 
   #verbstable {
@@ -84,13 +84,16 @@ p{display: inherit;}
   #tier-inputs label {
     display: inline-block;
     padding: 5px;
-    margin: 0 2px;
+    margin: 0 2px 0 2px;
     width: 20%; 
     border: 3px solid hsla(200, 100%, 35%, 1);
     border-radius: 15px 15px 0 0;
     justify-content: center;
     cursor: pointer;
   }
+
+  #tier-inputs label:first-child {margin: 0 2px 0 0;} 
+  #tier-inputs label:last-child {margin: 0 0 0 2px;} 
 
   
 
@@ -115,30 +118,32 @@ p{display: inherit;}
     height: 23px;
   }
 
-  tr:not(.tier-checked), tr:not(.contains-filter){
+    /* if one of the classes is missing the table row won't be displayed - I commented out this declaration due to avoid using pesudo-element if don't need to (see next declaration)
+
+  tr:not(.tier-checked), tr:not(.contains-filter){ 
     display: none;
-  }
+
+  }*/
+
+  /* the same as above (comented out) it shows only table rows where both classes are present */
+  tr {display: none}
+  tr.tier-checked.contains-filter {display: table-row}
 
   .zebra {
     background-color: hsla(200, 70%, 90%, 1);
   }
 
+.magic {
+  display: block !important;
+  animation-name: show !important;
+  animation-duration: 0.2s;
+  transform-origin: 0 0 ;
+}
 
-  thead::before {
-    transform-origin: 100% 100%;
-    transform: rotate(90deg);
-    right: 0;
-    position: absolute;
-    display: block;
-    content: "now table has";
-    height: 50px;
-    width: 120px;
-    background-color: red;
-    
-
-
-  }
-
+@keyframes show {
+  from {transform: scaleY(0%);}
+  to {transform: scaleY(100%);}
+}
   
 
 

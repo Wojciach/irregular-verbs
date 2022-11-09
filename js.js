@@ -17,7 +17,7 @@ function includeHTML() {
       }
       
 
-  function search() {
+  function search() { //shows only verbs which corespondinf go search result
 
    var input = document.getElementById("myInput");
    var filter = input.value.toUpperCase();
@@ -39,7 +39,7 @@ function includeHTML() {
   }
 
 
-  function viz(id) {
+  function viz(id) { //if label with level is checked verbs coresponding to that level are going to be displayed 
 
     var input = document.getElementById(id);
     var selected = document.getElementsByClassName(input.value);
@@ -55,7 +55,7 @@ function includeHTML() {
   }
 
   
-  function loading() {
+  function loading() {  //adding two classes to every table row to show all the verbs (only the rows with these two clases going to be visible - see css file)
 
     var allTr = document.querySelectorAll('tr');
 
@@ -69,24 +69,17 @@ function includeHTML() {
   function labDescShow() {
 
     var labels = document.querySelectorAll('label');
-    labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{/*showDescription(event);*/ addInfo(event);});
-                               /* element.addEventListener('mouseleave', (event)=>{hideDescription(event);}) */
+    labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{addInfo(event);});
+                               // element.addEventListener('mouseleave', (event)=>{removeInfo(event);}) 
     });
 
+    // document.getElementById('tier-inputs').addEventListener('mouseleave', (event)=>{removeInfo(event);})
 
   
   }
-/*
-function showDescription(e) {
-  var elemetToHide = document.querySelectorAll('#lvlDescriptions p');
-  elemetToHide.forEach(el => el.style.display = "none");
-  var elementToShow = document.getElementById(e.target.firstChild.value);
-  
-  elementToShow.style.display = "block";
 
-}
-*/
-function doZebra() {
+  // !!!VERY IMPORTANT!!! DOZEBRA FUNCTION HAVE SECONDARY BEHAVIOR - NAMELY: IT SHOWS NUMBER OF ROWS IN TABLE DESCRIPTION 
+function doZebra() {  //this fucntion is making every even table row to change its background color by adding zebra class to it
   var zebra = document.querySelectorAll('.tier-checked.contains-filter');
   
   for(i=0; i<=zebra.length-1; i++){
@@ -95,25 +88,32 @@ function doZebra() {
 
   }
 
-  document.getElementsByTagName('span')[1].innerHTML = zebra.length -1;
+  //this is the part where table description get information about how many table rows are currently displayed
+  document.querySelectorAll('#tablDescription span')[0].innerHTML = zebra.length -1;
  
 
 }
 
 function addInfo(e){
 
-  var allVisible =  document.querySelectorAll('.tier-checked.contains-filter');
+  var allVisible =  document.querySelectorAll('.tier-checked.contains-filter'); //how many table rows are vivible right now (including table header)
 
   var LvlName = document.getElementById('lvlDescription');
   var tablQuantity = document.getElementById('tablDescription');
 
-  LvlName.querySelector('span').innerHTML = e.target.innerText;
+  LvlName.querySelectorAll('span')[0].innerHTML = e.target.innerText; //putting level name into description
+
+  LvlName.querySelectorAll('span')[1].innerHTML = document.getElementsByClassName(e.target.firstChild.value).length;  //putting tier quantity into description
   tablQuantity.querySelector('span').innerHTML = allVisible.length -1;
 
-  document.getElementById('lvlDescription').style.display = "block";
+ // document.getElementById('lvlDescription').style.display = "block";
+ document.getElementById('lvlDescription').classList.add("magic");
   document.getElementById('tablDescription').style.display = "block";
-  
-  console.log(e.target.innerText);
+
+}
+
+function removeInfo(){
+  document.getElementById('lvlDescription').classList.remove("magic")
 }
 
 
