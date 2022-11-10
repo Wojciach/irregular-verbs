@@ -90,6 +90,19 @@ function doZebra() {  //this fucntion is making every even table row to change i
 
   //this is the part where table description get information about how many table rows are currently displayed
   document.querySelectorAll('#tablDescription span')[0].innerHTML = zebra.length -1;
+  
+  //this part add extra information when all available verbs are visible or none verb is visible
+  if (zebra.length == 189) {
+    document.getElementById('qExplanation').innerText = "All available verbs are now visible";
+    document.getElementById('qExplanation').style.backgroundColor = 'green';
+    document.getElementById('qExplanation').style.display = 'inline';
+  } else if(zebra.length <= 1) {
+    document.getElementById('qExplanation').innerText = "No verbs to show. Change search phrase or mark diferent level";
+    document.getElementById('qExplanation').style.backgroundColor = 'red';
+    document.getElementById('qExplanation').style.display = 'inline';
+  } else {
+    document.getElementById('qExplanation').style.display = 'none';
+  }
  
 
 }
