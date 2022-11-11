@@ -35,7 +35,7 @@ function includeHTML() {
           tr[i].classList.remove("contains-filter");
         }
       }
-    } doZebra();
+    } finalView();
   }
 
 
@@ -51,7 +51,7 @@ function includeHTML() {
         } else { 
           selected[i].classList.remove("tier-checked");
         }
-    } doZebra()
+    } finalView()
   }
 
   
@@ -63,7 +63,7 @@ function includeHTML() {
         allTr[i].classList.add("tier-checked");
         allTr[i].classList.add("contains-filter");
     }
-    doZebra();
+    finalView();
   }
 
   function labDescShow() {
@@ -73,39 +73,11 @@ function includeHTML() {
                                // element.addEventListener('mouseleave', (event)=>{removeInfo(event);}) 
     });
 
-    // document.getElementById('tier-inputs').addEventListener('mouseleave', (event)=>{removeInfo(event);})
-
-  
-  }
-
-  // !!!VERY IMPORTANT!!! DOZEBRA FUNCTION HAVE SECONDARY BEHAVIOR - NAMELY: IT SHOWS NUMBER OF ROWS IN TABLE DESCRIPTION 
-function doZebra() {  //this fucntion is making every even table row to change its background color by adding zebra class to it
-  var zebra = document.querySelectorAll('.tier-checked.contains-filter');
-  
-  for(i=0; i<=zebra.length-1; i++){
-    if(i%2==0) zebra[i].classList.add('zebra');
-    if(i%2==1) zebra[i].classList.remove('zebra');
+    document.getElementById("lev&desc").addEventListener("mouseleave", ()=>{document.getElementById('lvlDescription').classList.remove("magic");})
 
   }
 
-  //this is the part where table description get information about how many table rows are currently displayed
-  document.querySelectorAll('#tablDescription span')[0].innerHTML = zebra.length -1;
-  
-  //this part add extra information when all available verbs are visible or none verb is visible
-  if (zebra.length == 189) {
-    document.getElementById('qExplanation').innerText = "All available verbs are now visible";
-    document.getElementById('qExplanation').style.backgroundColor = 'green';
-    document.getElementById('qExplanation').style.display = 'inline';
-  } else if(zebra.length <= 1) {
-    document.getElementById('qExplanation').innerText = "No verbs to show. Change search phrase or mark diferent level";
-    document.getElementById('qExplanation').style.backgroundColor = 'red';
-    document.getElementById('qExplanation').style.display = 'inline';
-  } else {
-    document.getElementById('qExplanation').style.display = 'none';
-  }
- 
 
-}
 
 function addInfo(e){
 
@@ -130,7 +102,55 @@ function removeInfo(){
 }
 
 
+function finalView() { //adding extra details to filal view of the website
+  var allViz = document.querySelectorAll('.tier-checked.contains-filter');
+  doZebra(allViz);
+  rowsQuan(allViz);
+  extraInfo(allViz);
+}
 
+  
+  function doZebra(allViz) {  // adding colors to every odd and even table rows
+    
+    for(i=0; i<=allViz.length-1; i++){
+      if(i%2==0) allViz[i].classList.add('zebraEven'); else allViz[i].classList.remove('zebraEven');
+      if(i%2==1) allViz[i].classList.add('zebraOdd'); else allViz[i].classList.remove('zebraOdd');
+    }
+  }
+
+  function rowsQuan(allViz) { //table description get information about how many table rows are currently displayed
+    
+    document.querySelectorAll('#tablDescription span')[0].innerHTML = allViz.length -1;
+  }
+
+  function extraInfo(allViz) { // add extra information when all available verbs are visible or none verb is visible
+
+    var description = document.getElementById('qExplanation');
+    
+    if (allViz.length == 189) {
+
+      description.innerText = "☑ All available verbs are now visible ☑ ";
+
+      description.classList.remove("dsplNothing");
+      description.classList.add("dsplAll");
+
+      description.style.display = 'inline';
+
+    } else if(allViz.length <= 1) {
+
+      description.innerText = "☒ No verbs to show. ☒ Change search phrase or mark diferent level ☒";
+
+      description.classList.remove("dsplAll");
+      description.classList.add("dsplNothing");
+
+      description.style.display = 'inline';
+      
+    } else {
+      description.style.display = 'none';
+    }
+   
+  
+  }
   
 
 

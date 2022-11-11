@@ -15,6 +15,7 @@ body {
 
 h1 {
   color: #2b4757;
+  font-family:'Trebuchet MS';
 }
 
 section {margin: 0;}
@@ -22,7 +23,7 @@ section {margin: 0;}
 #description {text-align: justify;}
 
 p {
-  display: inherit:
+  display: inherit;
 }
 
 #tablDescription p:first-child {
@@ -30,13 +31,11 @@ p {
 }
 
 #lvlDescription, #tablDescription {
-    display: none;
-    background-color: hsla(200, 15%, 95%, 1);
+    /* display: none; */
     border: 2px solid hsla(200, 30%, 65%, 1);
-    border-radius: 0 0 15px 15px;
     margin-top: 0;
-    margin-bottom: 5px;
   }
+
   #tablDescription {
     position: relative;
     background-color: hsla(200, 44%, 80%, 1);
@@ -45,14 +44,32 @@ p {
     padding-bottom: 10px;
   }
 
+  #lvlDescription {
+    display: none;
+    background-color: hsla(45, 90%, 85%, 0.2);
+    border-radius: 0 0 15px 15px;
+    transform: scaleY(0%);
+    
+    margin-bottom: 5px;
+  }
+
+ 
+
   #qExplanation {
     display: inline;
     position: relative;
     top: 0;
-    background-color: green;
     border-radius: 8px;
     padding: 4px;
     z-index: 5;
+  }
+
+  .dsplAll {
+    background-color: hsla(120, 100%, 30%, .7);
+  }
+    
+  .dsplNothing {
+    background-color: hsla(0, 100%, 40%, .7);
   }
 
   #verbstable {
@@ -113,10 +130,8 @@ p {
   #tier-inputs label:first-child {margin: 0 2px 0 0;} 
   #tier-inputs label:last-child {margin: 0 0 0 2px;} 
 
-  
-
-
-  #tier-inputs label:hover {background-color: hsla(200, 15%, 95%, 1) !important;}
+  /* #tier-inputs label:hover {background-color: hsla(200, 15%, 95%, 1) !important;} */
+  #tier-inputs label:hover {background-color: hsla(45, 90%, 85%, 0.5) !important;}
 
   #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
   #tier-inputs label:nth-child(2) {background-color: hsla(200, 40%, 80%, 1);} 
@@ -135,34 +150,39 @@ p {
     width: 23px; 
     height: 23px;
   }
-
-    /* if one of the classes is missing the table row won't be displayed - I commented out this declaration due to avoid using pesudo-element if don't need to (see next declaration)
-
-  tr:not(.tier-checked), tr:not(.contains-filter){ 
-    display: none;
-
-  }*/
-
-  /* the same as above (comented out) it shows only table rows where both classes are present */
+  
   tr {display: none}
   tr.tier-checked.contains-filter {display: table-row}
 
-  .zebra {
+  .zebraEven {
     background-color: hsla(200, 70%, 90%, 1);
   }
+  .zebraOdd {
+    background-color: hsla(200, 15%, 98%, 1);
+  }
 
-.magic {
+  #lvlDescription.magic {
   display: block !important;
   animation-name: show !important;
+  
   animation-duration: 0.2s;
+  
+  animation-fill-mode: both;
+  
+  
   transform-origin: 0 0 ;
+ 
+
 }
 
 @keyframes show {
   from {transform: scaleY(0%);}
   to {transform: scaleY(100%);}
 }
-  
+
+
+
+
 
 
 
