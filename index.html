@@ -22,14 +22,18 @@
     
     <main>
 
-        <h1>Irregular Verbs &amp;</h1>
-        <h2>List of irregular verbs in english language.</h2>
-        <p>Hello!</p>
-        <p id="description">This website contains a list of irregular verbs in the English language contained in a convenient table . The verbs are presented alphabetically. You can search for the verb you need using the search bar. Verbs are grouped in five groups. Level 1 contains the most commonly used verbs. Level 5 contains rarely used verbs. You can switch on and off Level groups to simplify the table or make it more complex.</p>
+        <header>
+            <h1>Irregular Verbs &amp;</h1>
+            <h2>List of irregular verbs in english language.</h2>
+        </header>
 
-        <section id="lev&desc">
+        <section id="intro">
 
+            <p id="description">188 English irregular verbs are included here. The verbs are arranged alphabetically in this list. You can seek up the verb you need using the search bar. Verbs are categorised into five groups. The most frequently used verbs are those at Level 1. Level 5 contains verbs which are rarely used. By ticking or unchecking boxes, you can activate or deactivate level groups to make the table more or less complex.</p>
 
+        </section>
+        
+        <section id="levDesc">
 
             <div id="tier-inputs">
                 
@@ -51,30 +55,36 @@
             </div>
 
             <div id="lvlDescription" >
-                <p><b><span>Level 1</span> :</b> Contasins: <span></span> irregular verbs.</p> 
+                <p><b><span>LevelName</span> :</b> Contasins: <span>Quantity</span> irregular verbs.</p> 
+                <div id="stars">text</div>
             </div>
+
 
         </section>
 
-        <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
+        <section id="tableSection">
 
-        <div id="tablDescription" >
-            <p> Right now the table has <span style="font-weight: bold">25</span> irregular verbs switched on. <i>(visible)</i></p> 
-            <span id="qExplanation"></span>
-        </div>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
 
-        <table id="verbstable">
-            <thead>
-            <tr>
-            <th>Base Form</th>
-            <th>Past Simple (V2)</th>
-            <th>Past Participle (V3)</th>
-            </tr>
-            </thead>
+            <div id="tablDescription" >
+                <p> Right now the table has <span style="font-weight: bold">25</span> irregular verbs switched on. <i>(visible)</i></p> 
+                <span id="qExplanation"></span>
+            </div>
 
-            <tbody>  </tbody>
+            <table id="verbstable">
+                <thead>
+                <tr>
+                <th>Base Form</th>
+                <th>Past Simple (V2)</th>
+                <th>Past Participle (V3)</th>
+                </tr>
+                </thead>
 
-        </table>
+                <tbody>  </tbody>
+
+            </table>
+
+        </section>
     </main>
 
 </body>

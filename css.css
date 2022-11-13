@@ -31,10 +31,12 @@ p {
 }
 
 #lvlDescription, #tablDescription {
-    /* display: none; */
     border: 2px solid hsla(200, 30%, 65%, 1);
     margin-top: 0;
   }
+
+  #tableSection {transition: all .4s;}
+  #tableSection.moveDown {transform: translateY(70px)}
 
   #tablDescription {
     position: relative;
@@ -44,16 +46,34 @@ p {
     padding-bottom: 10px;
   }
 
+  #levDesc {position: relative;}
+
   #lvlDescription {
-    display: none;
+    width: 100%; 
+    position: absolute;
     background-color: hsla(45, 90%, 85%, 0.2);
     border-radius: 0 0 15px 15px;
     transform: scaleY(0%);
-    
+    transform-origin: 0 0;
+    transition: all .4s;
     margin-bottom: 5px;
+    
+    
   }
 
- 
+  #lvlDescription.magic {
+    
+    transform: scaleY(100%);
+}
+
+#stars {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  font-size: smaller;
+}
+
+
 
   #qExplanation {
     display: inline;
@@ -161,24 +181,6 @@ p {
     background-color: hsla(200, 15%, 98%, 1);
   }
 
-  #lvlDescription.magic {
-  display: block !important;
-  animation-name: show !important;
-  
-  animation-duration: 0.2s;
-  
-  animation-fill-mode: both;
-  
-  
-  transform-origin: 0 0 ;
- 
-
-}
-
-@keyframes show {
-  from {transform: scaleY(0%);}
-  to {transform: scaleY(100%);}
-}
 
 
 

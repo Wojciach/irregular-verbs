@@ -73,7 +73,8 @@ function includeHTML() {
                                // element.addEventListener('mouseleave', (event)=>{removeInfo(event);}) 
     });
 
-    document.getElementById("lev&desc").addEventListener("mouseleave", ()=>{document.getElementById('lvlDescription').classList.remove("magic");})
+    document.getElementById("verbstable").addEventListener("mouseenter", removeInfo);
+    document.getElementById("intro").addEventListener("mouseenter", removeInfo);
 
   }
 
@@ -88,17 +89,31 @@ function addInfo(e){
 
   LvlName.querySelectorAll('span')[0].innerHTML = e.target.innerText; //putting level name into description
 
+  var commonness = "";
+  if(e.target.innerText == 'Level 5') commonness = "★";
+  if(e.target.innerText == 'Level 4') commonness = "★★";
+  if(e.target.innerText == 'Level 3') commonness = "★★★";
+  if(e.target.innerText == 'Level 2') commonness = "★★★★";
+  if(e.target.innerText == 'Level 1') commonness = "★★★★★";
+
+  
+  commonness = commonness.padEnd(5, "☆");
+
+  document.getElementById('stars').innerHTML = "<i>Commonness: </i>" + commonness;
+    
+
   LvlName.querySelectorAll('span')[1].innerHTML = document.getElementsByClassName(e.target.firstChild.value).length;  //putting tier quantity into description
   tablQuantity.querySelector('span').innerHTML = allVisible.length -1;
 
- // document.getElementById('lvlDescription').style.display = "block";
  document.getElementById('lvlDescription').classList.add("magic");
-  document.getElementById('tablDescription').style.display = "block";
-
+ document.getElementById('tableSection').classList.add("moveDown");
+ 
 }
 
 function removeInfo(){
-  document.getElementById('lvlDescription').classList.remove("magic")
+  document.getElementById('lvlDescription').classList.remove("magic");
+  document.getElementById('tableSection').classList.remove("moveDown");
+  
 }
 
 
@@ -138,7 +153,7 @@ function finalView() { //adding extra details to filal view of the website
 
     } else if(allViz.length <= 1) {
 
-      description.innerText = "☒ No verbs to show. ☒ Change search phrase or mark diferent level ☒";
+      description.innerText = "☒ No verbs to show. ☒ Change search phrase or check diferent level ☒";
 
       description.classList.remove("dsplAll");
       description.classList.add("dsplNothing");
