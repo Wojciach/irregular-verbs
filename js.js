@@ -6,7 +6,6 @@ function includeHTML() {
           if (this.readyState == 4) {
             if (this.status == 200) {elmnt.innerHTML = this.responseText;}
             if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-
           }
         }
         xhttp.addEventListener("load", loading); //adding tier-checked and contains-filter to every tr element
@@ -16,8 +15,8 @@ function includeHTML() {
         return;
       }
       
-
-  function search() { //shows only verbs which corespondinf go search result
+  // shows only verbs which coresponding go search result
+  function search() { 
 
    var input = document.getElementById("myInput");
    var filter = input.value.toUpperCase();
@@ -38,8 +37,8 @@ function includeHTML() {
     } finalView();
   }
 
-
-  function viz(id) { //if label with level is checked verbs coresponding to that level are going to be displayed 
+  // if label with level is checked verbs coresponding to that level are going to be displayed 
+  function viz(id) { 
 
     var input = document.getElementById(id);
     var selected = document.getElementsByClassName(input.value);
@@ -54,9 +53,8 @@ function includeHTML() {
     } finalView()
   }
 
-  
-  function loading() {  //adding two classes to every table row to show all the verbs (only the rows with these two clases going to be visible - see css file)
-
+  // adding two classes to every table row to show all the verbs (only the rows with these two clases going to be visible - see css file)
+  function loading() {  
     var allTr = document.querySelectorAll('tr');
 
     for(i=0; i<=allTr.length-1; i++) {
@@ -73,6 +71,7 @@ function includeHTML() {
                                // element.addEventListener('mouseleave', (event)=>{removeInfo(event);}) 
     });
 
+    // hidding level description 
     document.getElementById("verbstable").addEventListener("mouseenter", removeInfo);
     document.getElementById("intro").addEventListener("mouseenter", removeInfo);
 
@@ -81,51 +80,55 @@ function includeHTML() {
 
 
 function addInfo(e){
-
-  var allVisible =  document.querySelectorAll('.tier-checked.contains-filter'); //how many table rows are vivible right now (including table header)
+  //how many table rows are vivible right now (including table header)
+  var allVisible =  document.querySelectorAll('.tier-checked.contains-filter'); 
 
   var LvlName = document.getElementById('lvlDescription');
   var tablQuantity = document.getElementById('tablDescription');
 
-  LvlName.querySelectorAll('span')[0].innerHTML = e.target.innerText; //putting level name into description
+  //adding level name into description
+  LvlName.querySelectorAll('span')[0].innerHTML = e.target.innerText; 
 
-  var commonness = "";
-  if(e.target.innerText == 'Level 5') commonness = "★";
-  if(e.target.innerText == 'Level 4') commonness = "★★";
-  if(e.target.innerText == 'Level 3') commonness = "★★★";
-  if(e.target.innerText == 'Level 2') commonness = "★★★★";
-  if(e.target.innerText == 'Level 1') commonness = "★★★★★";
-
-  
-  commonness = commonness.padEnd(5, "☆");
-
-  document.getElementById('stars').innerHTML = "<i>Commonness: </i>" + commonness;
+  // adding 'stars' and a comment at the end of level description
+    var commonness = "";
+    switch(e.target.innerText){
+      case 'Level 5': commonness = "★☆☆☆☆ (rarest)"; break;
+      case 'Level 4': commonness = "★★☆☆☆"; break;
+      case 'Level 3': commonness = "★★★☆☆"; break;
+      case 'Level 2': commonness = "★★★★☆"; break;
+      case 'Level 1': commonness = "★★★★★ (most common)"; break;
+    }
+    document.getElementById('stars').innerHTML = "<i>Commonness: </i>" + commonness;
     
+  //adding information how many verbs are in particular level
+  LvlName.querySelectorAll('span')[1].innerHTML = document.getElementsByClassName(e.target.firstChild.value).length;
+  
+  //adding information how many verbs are in the table currently
+  tablQuantity.querySelector('span').innerHTML = allVisible.length -1; 
 
-  LvlName.querySelectorAll('span')[1].innerHTML = document.getElementsByClassName(e.target.firstChild.value).length;  //putting tier quantity into description
-  tablQuantity.querySelector('span').innerHTML = allVisible.length -1;
-
- document.getElementById('lvlDescription').classList.add("magic");
- document.getElementById('tableSection').classList.add("moveDown");
+  //sliding down level description (to show it) and the whole table (to make space)
+  document.getElementById('lvlDescription').classList.add("magic");
+  document.getElementById('tableSection').classList.add("moveDown");
  
 }
 
+//sliding up level description (to hide it) and the whole table (to get rid of the gap)
 function removeInfo(){
   document.getElementById('lvlDescription').classList.remove("magic");
   document.getElementById('tableSection').classList.remove("moveDown");
   
 }
 
-
-function finalView() { //adding extra details to filal view of the website
+// adding extra details to filal view of the website
+function finalView() { 
   var allViz = document.querySelectorAll('.tier-checked.contains-filter');
   doZebra(allViz);
   rowsQuan(allViz);
   extraInfo(allViz);
 }
 
-  
-  function doZebra(allViz) {  // adding colors to every odd and even table rows
+  // adding colors to every odd and even table rows
+  function doZebra(allViz) {  
     
     for(i=0; i<=allViz.length-1; i++){
       if(i%2==0) allViz[i].classList.add('zebraEven'); else allViz[i].classList.remove('zebraEven');
@@ -133,12 +136,13 @@ function finalView() { //adding extra details to filal view of the website
     }
   }
 
-  function rowsQuan(allViz) { //table description get information about how many table rows are currently displayed
+  // table description get information about how many table rows are currently displayed
+  function rowsQuan(allViz) { 
     
     document.querySelectorAll('#tablDescription span')[0].innerHTML = allViz.length -1;
   }
-
-  function extraInfo(allViz) { // add extra information when all available verbs are visible or none verb is visible
+  // add extra information when all available verbs are visible or not a verb is visible
+  function extraInfo(allViz) { 
 
     var description = document.getElementById('qExplanation');
     
