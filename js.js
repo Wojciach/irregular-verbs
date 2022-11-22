@@ -9,7 +9,7 @@ function includeHTML() {
           }
         }
         xhttp.addEventListener("load", loading); //adding tier-checked and contains-filter to every tr element
-        xhttp.open("GET", "BASETABLE.html", true);
+        xhttp.open("GET", "NEWBASETABLE.html", true);
         xhttp.send();
         /* Exit the function: */
         return;
