@@ -55,9 +55,9 @@ function includeHTML() {
 
   // adding two classes to every table row to show all the verbs (only the rows with these two clases going to be visible - see css file)
   function loading() {  
-    var allTr = document.querySelectorAll('tr');
+    var allTr = document.querySelectorAll('#verbstable > tbody > tr');
 
-    for(i=0; i<=allTr.length-1; i++) {
+    for(i=0; i<allTr.length; i++) {
         allTr[i].classList.add("tier-checked");
         allTr[i].classList.add("contains-filter");
     }
@@ -104,7 +104,7 @@ function addInfo(e){
   LvlName.querySelectorAll('span')[1].innerHTML = document.getElementsByClassName(e.target.firstChild.value).length;
   
   //adding information how many verbs are in the table currently
-  tablQuantity.querySelector('span').innerHTML = allVisible.length -1; 
+  tablQuantity.querySelector('span').innerHTML = allVisible.length; 
 
   //sliding down level description (to show it) and the whole table (to make space)
   document.getElementById('lvlDescription').classList.add("magic");
@@ -130,7 +130,7 @@ function finalView() {
   // adding colors to every odd and even table rows
   function doZebra(allViz) {  
     
-    for(i=0; i<=allViz.length-1; i++){
+    for(i=0; i<allViz.length; i++){
       if(i%2==0) allViz[i].classList.add('zebraEven'); else allViz[i].classList.remove('zebraEven');
       if(i%2==1) allViz[i].classList.add('zebraOdd'); else allViz[i].classList.remove('zebraOdd');
     }
@@ -139,14 +139,17 @@ function finalView() {
   // table description get information about how many table rows are currently displayed
   function rowsQuan(allViz) { 
     
-    document.querySelectorAll('#tablDescription span')[0].innerHTML = allViz.length -1;
+    document.querySelectorAll('#tablDescription span')[0].innerHTML = allViz.length;
   }
   // add extra information when all available verbs are visible or not a verb is visible
   function extraInfo(allViz) { 
 
     var description = document.getElementById('qExplanation');
-    
-    if (allViz.length == 189) {
+
+    var fullTable = document.querySelectorAll('#verbstable > tbody > tr').length;
+    console.log(fullTable);
+    console.log(allViz.length);
+    if (allViz.length == fullTable) {
 
       description.innerText = "☑ All available verbs are now visible ☑ ";
 
@@ -171,7 +174,6 @@ function finalView() {
   
   }
   
-
 
 
 

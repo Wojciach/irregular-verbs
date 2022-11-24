@@ -175,10 +175,10 @@ p {
   tr.tier-checked.contains-filter {display: table-row}
 
   .zebraEven {
-    background-color: hsla(200, 70%, 90%, 1);
+    background-color: hsla(200, 15%, 98%, 1);
   }
   .zebraOdd {
-    background-color: hsla(200, 15%, 98%, 1);
+    background-color: hsla(200, 70%, 90%, 1);
   }
 
 
