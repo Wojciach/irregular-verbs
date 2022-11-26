@@ -84,7 +84,7 @@
             <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
 
             <div id="tablDescription" >
-                <p> Right now the table has <span style="font-weight: bold">25</span> irregular verbs switched on. <i>(visible)</i></p> 
+                <p> Right now the table has <span style="font-weight: bold">25</span> out of 230 irregular verbs visible. <i>(switched on)</i></p> 
                 <span id="qExplanation"></span>
             </div>
 
@@ -101,7 +101,26 @@
 
             </table>
 
+            <aside>
+                <div id="survey">
+                    Do you like this website?
+                    <span id="answers">
+                        <label for="age1"><input onchange="color(this)" type="radio" id="age1" name="age" value="yes">Yes</label>
+                        <label for="age2"><input onchange="color(this)" type="radio" id="age2" name="age" value="no">No</label>
+                    </span>
+                    <span id="submit">
+                        <input type="submit" value="Send">
+                    </span>
+                </div>
+                <div id="textarea">
+                    <textarea rows="4" placeholder="What can we improve?"></textarea>
+                </div>
+            </aside>
+
         </section>
+
+
+    
     </main>
 
 </body>

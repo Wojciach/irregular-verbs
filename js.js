@@ -66,7 +66,7 @@ function includeHTML() {
 
   function labDescShow() {
 
-    var labels = document.querySelectorAll('label');
+    var labels = document.querySelectorAll('#tier-inputs > label');
     labels.forEach(element => { element.addEventListener('mouseenter', (event)=>{addInfo(event);});
                                // element.addEventListener('mouseleave', (event)=>{removeInfo(event);}) 
     });
@@ -147,22 +147,38 @@ function finalView() {
     var description = document.getElementById('qExplanation');
 
     var fullTable = document.querySelectorAll('#verbstable > tbody > tr').length;
-    console.log(fullTable);
-    console.log(allViz.length);
+
     if (allViz.length == fullTable) {
 
       description.innerText = "☑ All available verbs are now visible ☑ ";
 
       description.classList.remove("dsplNothing");
+      description.classList.remove("dsplSomething");
+
       description.classList.add("dsplAll");
 
       description.style.display = 'inline';
+    }
 
-    } else if(allViz.length <= 1) {
+    else if(allViz.length < fullTable && allViz.length > 0) {
 
-      description.innerText = "☒ No verbs to show. ☒ Change search phrase or check diferent level ☒";
+      description.innerText = "Change search phrase or tick more levels to see more verbs.";
+
+      description.classList.remove("dsplNothing");
+      description.classList.remove("dsplAll");
+
+      description.classList.add("dsplSomething");
+
+      description.style.display = 'inline';
+
+    } 
+    else if(allViz.length == 0) {
+
+      description.innerText = "☒ No verbs to show. ☒ Change search phrase or tick different level to see more verbs.";
 
       description.classList.remove("dsplAll");
+      description.classList.remove("dsplSomething");
+
       description.classList.add("dsplNothing");
 
       description.style.display = 'inline';
@@ -171,11 +187,26 @@ function finalView() {
       description.style.display = 'none';
     }
    
-  
   }
   
+  function color(x) {
+    if(x.value == 'yes') {
+       
+      x.parentElement.parentElement.style.backgroundColor = 'hsla(120, 100%, 30%, .7)';
+      document.getElementById('textarea').firstElementChild.classList.remove('magic');
+    }
+    else if (x.value == 'no') {
+      
+      x.parentElement.parentElement.style.backgroundColor = 'hsla(0, 100%, 40%, .7)';
+      
+      document.getElementById('textarea').firstElementChild.classList.add('magic');
+      document.getElementById('textarea').firstElementChild.focus();
+     
+      setTimeout( function() { window.scrollBy(0, 300);}, 260);
 
-
+    }
+    
+  }
 
 
   
