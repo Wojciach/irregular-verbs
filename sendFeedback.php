@@ -2,13 +2,10 @@
 
 
 
-$mysqli = new mysqli("127.0.0.1", "root", "", "irregular-lcl");
-if($mysqli->connect_error) {
-  exit('Could not connect');
-}
 
 
-$msg = htmlspecialchars($_GET['q']);
+
+$msg = htmlspecialchars($_GET['f']);
 
 
 $ip1 = $_SERVER['REMOTE_ADDR'];
@@ -32,18 +29,32 @@ function getIPAddress() {
 
 $ip2 = getIPAddress();  
 
-echo $msg;  
  
-$ip = $ip1."---".$ip2;  
+ 
+ 
+
+$mysqli = new mysqli("127.0.0.1", "root", "", "irregular-lcl");
+if($mysqli->connect_error) {
+  exit('Could not connect');
+}
 
 
-$sql = "INSERT INTO `messages`(`ip`, `msg`) VALUES ('$ip','$msg')";
+$sql = "SELECT COUNT(ip) FROM messages WHERE ip = '$ip1'";
+$result = $mysqli->query($sql);
+$fetch = $result->fetch_assoc();
 
-$stmt = $mysqli->prepare($sql);
+if($fetch['COUNT(ip)'] < 5) {
 
-$stmt->execute();
+  $sql = "INSERT INTO `messages`(`ip`, `msg`) VALUES ('$ip1','$msg')";
+  $stmt = $mysqli->query($sql);
 
-$stmt->close();
+} elseif($fetch['COUNT(ip)'] >= 5 && $msg != "") {
+  echo "You have sent 5 requests already. Please allow us time to process them. <br><b> Thank you for your feedback.</b>";
+}
+
+
+
+$mysqli->close();
 
 
 

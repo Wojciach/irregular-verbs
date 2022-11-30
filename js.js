@@ -208,5 +208,40 @@ function finalView() {
     
   }
 
+  function send() {
+    
+      var like = document.getElementsByName('like');
+      like.forEach(element => {
+        if(element.checked) {console.log(element.value)}
+      });
+      
 
+      var str = document.getElementById('textarea').firstElementChild.value;
+      console.log("just after setting str, str: " + str);
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        
+        document.querySelector('#survey div').innerHTML = this.responseText;
+        if(this.responseText != "") {
+          document.querySelector('#survey div').style.display = "block";
+        }
+        console.log("response from php: " + this.responseText);
+        
+      }
+      xhttp.open("GET", "sendFeedback.php?f=" + str);
+      xhttp.send();
+    }
+
+  
+
+/*
+  function decode(str) {
+
+    let txt = new DOMParser().parseFromString(str, "text/html");
+    
+    return txt.documentElement.textContent;
+    
+    }
+ */
   

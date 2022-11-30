@@ -187,6 +187,7 @@ p {
   }
 
   #survey {
+    
     display: block;
     border: 2px solid blue;
     border-radius: 12px;
@@ -199,11 +200,23 @@ p {
     background-color: hsla(200, 44%, 80%, 1);
     border: 2px solid hsla(200, 30%, 65%, 1);
     border-radius: 15px;
-    margin-bottom: 0;
+    
     padding-bottom: 10px;
   }
 
+  #survey div {
+    display: none;
+    background-color: hsla(50, 100%, 80%, .7);
+    top: 0;
+    position: relative;
+    border-radius: 8px;
+    padding: 4px;
+    z-index: 5;
+  
+  }
+
   #survey #answers {
+    position: relative;
     background-color: #2b4757;
     border: 2px solid hsla(200, 60%, 35%, 1);
     padding: 6px 0;
@@ -254,6 +267,34 @@ p {
 
   #textarea textarea.magic {
     transform: scaleY(100%);
+  }
+
+  #switch {
+    display:inline-flex;
+    position: relative;
+    background-color: green;
+    height: 100%;
+    width: 60px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  #back {
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    background-color: red;
+    width: 40px;
+    justify-content: flex-start;
+  }
+
+  #dot {
+    align-self: center;
+    display: inline-flex;
+    background-color:  white;
+    width: 20px;
+    height: 20px;
   }
 
 
