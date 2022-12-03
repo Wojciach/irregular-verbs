@@ -209,27 +209,32 @@ function finalView() {
   }
 
   function send() {
-    
-      var like = document.getElementsByName('like');
-      like.forEach(element => {
-        if(element.checked) {console.log(element.value)}
-      });
-      
+
+      var like = "";    
+      document.getElementsByName('like')[0].checked ? like = "yes" : like = "no";
+      console.log("yes or no: " + like)
+     
 
       var str = document.getElementById('textarea').firstElementChild.value;
       console.log("just after setting str, str: " + str);
 
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
+
+        console.log("THIS RESPONSE: " +  this.responseText)
+       
+        var resp = JSON.parse(this.responseText);
+
+        document.querySelector('#survey div').innerHTML = resp.msgPHP;
         
-        document.querySelector('#survey div').innerHTML = this.responseText;
-        if(this.responseText != "") {
           document.querySelector('#survey div').style.display = "block";
-        }
-        console.log("response from php: " + this.responseText);
+        
+        
+        console.log(resp.msgPHP);
+
         
       }
-      xhttp.open("GET", "sendFeedback.php?f=" + str);
+      xhttp.open("GET", "sendFeedback.php?feedback=" + str + "&liked=" + like );
       xhttp.send();
     }
 

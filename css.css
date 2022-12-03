@@ -204,10 +204,20 @@ p {
     padding-bottom: 10px;
   }
 
+  @media screen and (max-width: 500px) {
+    #survey {display: block;}
+    #answers {display: block;}
+    #survey div {display: block;}
+    #submit {display: block;}
+    #submit input {width: 100%;}
+
+  }
+
   #survey div {
     display: none;
     background-color: hsla(50, 100%, 80%, .7);
     top: 0;
+    margin-top: 5px;
     position: relative;
     border-radius: 8px;
     padding: 4px;
@@ -217,14 +227,36 @@ p {
 
   #survey #answers {
     position: relative;
-    background-color: #2b4757;
+    background-color: hsla(210, 50%, 55%, 1); 
     border: 2px solid hsla(200, 60%, 35%, 1);
     padding: 6px 0;
     border-radius: 15px;
+    z-index: 0;
   }
+
+  #survey #answers:hover::after {
+    opacity: 1;
+    
+  }
+
+  #survey #answers::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+    opacity: 0;
+    z-index: -1;
+    border-radius: 15px;
+  }
+
+
   #survey #answers label {
     padding: 6px;
     border-radius: 15px;
+
   }
 
   #survey #answers label:hover{
@@ -233,12 +265,14 @@ p {
 
   #submit {
     margin-left: 9px;
+    margin-right: 9px;
     
   }
 
   #submit input {
-    padding: 8px;
+    padding: 8px 16px;
     border-radius: 15px;
+    margin-top: 10px;
   }
 
   #submit input:hover {
@@ -269,33 +303,7 @@ p {
     transform: scaleY(100%);
   }
 
-  #switch {
-    display:inline-flex;
-    position: relative;
-    background-color: green;
-    height: 100%;
-    width: 60px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-  }
 
-  #back {
-    display: inline-flex;
-    align-content: center;
-    align-items: center;
-    background-color: red;
-    width: 40px;
-    justify-content: flex-start;
-  }
-
-  #dot {
-    align-self: center;
-    display: inline-flex;
-    background-color:  white;
-    width: 20px;
-    height: 20px;
-  }
 
 
 
