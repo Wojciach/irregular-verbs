@@ -77,11 +77,11 @@ p {
 
 
   #qExplanation {
-    display: inline;
+    display: block;
     position: relative;
-    top: 0;
+    top: 0px;
     border-radius: 8px;
-    padding: 4px;
+    padding: 1px;
     z-index: 5;
   }
 
@@ -155,7 +155,6 @@ p {
   #tier-inputs label:first-child {margin: 0 2px 0 0;} 
   #tier-inputs label:last-child {margin: 0 0 0 2px;} 
 
-  /* #tier-inputs label:hover {background-color: hsla(200, 15%, 95%, 1) !important;} */
   #tier-inputs label:hover {background-color: hsla(45, 90%, 85%, 0.5) !important;}
 
   #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
@@ -186,34 +185,21 @@ p {
     background-color: hsla(200, 70%, 90%, 1);
   }
 
+ 
   #survey {
-    
     display: block;
-    border: 2px solid blue;
-    border-radius: 12px;
-    padding: 8px;
-    margin-top: 3px;
-  }
-
-  #survey {
     position: relative;
+    margin-top: 3px;
+    padding: 8px;
     background-color: hsla(200, 44%, 80%, 1);
     border: 2px solid hsla(200, 30%, 65%, 1);
     border-radius: 15px;
-    
     padding-bottom: 10px;
   }
 
-  @media screen and (max-width: 500px) {
-    #survey {display: block;}
-    #answers {display: block;}
-    #survey div {display: block;}
-    #submit {display: block;}
-    #submit input {width: 100%;}
 
-  }
 
-  #survey div {
+  #submInfo {
     display: none;
     background-color: hsla(50, 100%, 80%, .7);
     top: 0;
@@ -225,62 +211,52 @@ p {
   
   }
 
-  #survey #answers {
+  #answers {
+    display: inline;
     position: relative;
     background-color: hsla(210, 50%, 55%, 1); 
     border: 2px solid hsla(200, 60%, 35%, 1);
     padding: 6px 0;
     border-radius: 15px;
-    z-index: 0;
+    align-content: center;
   }
 
-  #survey #answers:hover::after {
-    opacity: 1;
-    
-  }
-
-  #survey #answers::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: red;
-    opacity: 0;
-    z-index: -1;
-    border-radius: 15px;
-  }
-
-
-  #survey #answers label {
+  #answers label {
+    display: inline;
+    width: 40%;
     padding: 6px;
     border-radius: 15px;
-
+    /* border: 2px solid hsla(210, 20%, 40%, 1); 
+    background-color: hsla(210, 20%, 40%, .5); */
   }
 
-  #survey #answers label:hover{
+  #answers label:hover{
     background-color: hsla(45, 90%, 85%, 0.5);
   }
 
   #submit {
+    
+    display: inline;
     margin-left: 9px;
     margin-right: 9px;
     
   }
 
   #submit input {
+    display: inline;
     padding: 8px 16px;
     border-radius: 15px;
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  #submit input:hover {
+  #submit input:hover:not([disabled]) {
     background-color: hsla(45, 90%, 85%, 0.5);
     transform: translate(1px, 1px);
   }
 
-  #submit input:hover:active {
+  #submit input:hover:active:not([disabled]) {
     transform: translate(2px, 2px);
   }
 
@@ -301,6 +277,16 @@ p {
 
   #textarea textarea.magic {
     transform: scaleY(100%);
+  }
+
+  @media screen and (max-width: 500px) {
+    #survey {display: block; line-height: 1.4em;}
+    #answers {display: block; margin: 15px;}
+    #answers label {display: inline;}
+    #submit {display: block;}
+    #submit input {display: block; width: 100%; margin: 15px; margin: auto;}
+    
+
   }
 
 

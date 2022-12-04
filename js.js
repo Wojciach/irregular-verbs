@@ -212,41 +212,26 @@ function finalView() {
 
       var like = "";    
       document.getElementsByName('like')[0].checked ? like = "yes" : like = "no";
-      console.log("yes or no: " + like)
-     
-
+      
       var str = document.getElementById('textarea').firstElementChild.value;
-      console.log("just after setting str, str: " + str);
-
+    
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
 
-        console.log("THIS RESPONSE: " +  this.responseText)
-       
         var resp = JSON.parse(this.responseText);
-
-        document.querySelector('#survey div').innerHTML = resp.msgPHP;
-        
-          document.querySelector('#survey div').style.display = "block";
-        
-        
-        console.log(resp.msgPHP);
-
-        
+        document.querySelector('#submInfo').innerHTML = resp.msgPHP;
+        document.querySelector('#submInfo').style.display = "block";
+      
       }
       xhttp.open("GET", "sendFeedback.php?feedback=" + str + "&liked=" + like );
       xhttp.send();
+
+      document.querySelector('#textarea textarea').value = "";
+      document.querySelector('#textarea textarea').style.display = "none";
+      document.querySelector('#submit input').disabled = "true";
+      document.querySelectorAll('#answers input')[0].disabled = "true";
+      document.querySelectorAll('#answers input')[1].disabled = "true";
+     
     }
 
-  
-
-/*
-  function decode(str) {
-
-    let txt = new DOMParser().parseFromString(str, "text/html");
-    
-    return txt.documentElement.textContent;
-    
-    }
- */
   

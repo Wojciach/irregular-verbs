@@ -64,7 +64,7 @@ if($fdbQ < 5) {
   sendData($ip1, $msg, $like);
   $resp = '{"msgPHP":"'.$thanks.'","fdbQ":"'.$fdbQ.'"}';
   if($like=="yes") {$resp = '{"msgPHP":"'.$thanks.$happy.$happy.$happy.'","fdbQ":"'.$fdbQ.'"}';}
-  if($like=="no") {$resp = '{"msgPHP":"'.$thanks.$sad.$sad.$sad.'","fdbQ":"'.$fdbQ.'"}';}
+  if($like=="no") {$resp = '{"msgPHP":"'.$thanks.'","fdbQ":"'.$fdbQ.'"}';}
   
   echo $resp;
 }

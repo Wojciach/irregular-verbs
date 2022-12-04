@@ -1,0 +1,344 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+  }
+  html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-align: center;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 10px;
+  }
+  
+  h1 {
+    color: #2b4757;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  section {margin: 0;}
+  
+  #description {text-align: justify;}
+  
+  p {
+    display: inherit;
+  }
+  
+  #tablDescription p:first-child {
+    margin-bottom: 0;
+  }
+  
+  #lvlDescription, #tablDescription {
+      border: 2px solid hsla(200, 30%, 65%, 1);
+      margin-top: 0;
+    }
+  
+    #tableSection {-webkit-transition: all .4s;-o-transition: all .4s;transition: all .4s;}
+    #tableSection.moveDown {-webkit-transform: translateY(70px);-ms-transform: translateY(70px);transform: translateY(70px)}
+  
+    #tablDescription {
+      position: relative;
+      background-color: hsla(200, 44%, 80%, 1);
+      border-radius: 15px 15px 0 0;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+    }
+  
+    #levDesc {position: relative;}
+  
+    #lvlDescription {
+      width: 100%; 
+      position: absolute;
+      background-color: hsla(45, 90%, 85%, 0.2);
+      border-radius: 0 0 15px 15px;
+      -webkit-transform: scaleY(0%);
+          -ms-transform: scaleY(0%);
+              transform: scaleY(0%);
+      -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s;
+      margin-bottom: 5px;
+      
+      
+    }
+  
+    #lvlDescription.magic {
+      
+      -webkit-transform: scaleY(100%);
+      
+          -ms-transform: scaleY(100%);
+      
+              transform: scaleY(100%);
+  }
+  
+  #stars {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    font-size: smaller;
+  }
+  
+  
+  
+    #qExplanation {
+      display: block;
+      position: relative;
+      top: 0px;
+      border-radius: 8px;
+      padding: 1px;
+      z-index: 5;
+    }
+  
+    .dsplAll {
+      background-color: hsla(120, 100%, 30%, .7);
+    }
+  
+    .dsplSomething {
+      background-color: hsla(50, 100%, 80%, .7);
+    }
+      
+    .dsplNothing {
+      background-color: hsla(0, 100%, 40%, .7);
+    }
+  
+    #verbstable {
+      position: relative;
+      border-collapse: collapse; 
+      width: 100%;
+      -webkit-transition: all 1s;
+      -o-transition: all 1s;
+      transition: all 1s;
+    }
+   
+    #verbstable td, #verbstable th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      width: 33%;
+    }
+    
+    #verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
+  
+    label:active {
+    -webkit-transform: translate(1px, 1px);
+        -ms-transform: translate(1px, 1px);
+            transform: translate(1px, 1px);
+    }
+  
+    #verbstable th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #2b4757;
+      color: #c8e5f3;
+    }
+  
+    #myInput {
+      background-image: url("img/svgsearch.svg"); /* Add a search icon to input */
+      background-position: 0px 0px; /* Position the search icon */
+      background-repeat: no-repeat; /* Do not repeat the icon image */
+      width: 100%; /* Full-width */
+      font-size: 16px; /* Increase font-size */
+      padding: 12px 20px 12px 40px; /* Add some padding */
+      border: 1px solid #ddd; /* Add a grey border */
+      border-radius: 20px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+    }
+  
+    #tier-inputs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+    }
+  
+    #tier-inputs label {
+      display: inline-block;
+      padding: 5px;
+      margin: 0 2px 0 2px;
+      width: 20%; 
+      border: 3px solid hsla(200, 100%, 35%, 1);
+      border-radius: 15px 15px 0 0;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      cursor: pointer;
+    }
+  
+    #tier-inputs label:first-child {margin: 0 2px 0 0;} 
+    #tier-inputs label:last-child {margin: 0 0 0 2px;} 
+  
+    #tier-inputs label:hover {background-color: hsla(45, 90%, 85%, 0.5) !important;}
+  
+    #tier-inputs label:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
+    #tier-inputs label:nth-child(2) {background-color: hsla(200, 40%, 80%, 1);} 
+    #tier-inputs label:nth-child(3) {background-color: hsla(200, 60%, 70%, 1);}
+    #tier-inputs label:nth-child(4) {background-color: hsla(200, 80%, 60%, 1);}
+    #tier-inputs label:nth-child(5) {background-color: hsla(200, 100%, 50%, 1);} 
+  
+    #tier-inputs label.label-tier-checked {background-color: hsla(200, 20%, 90%, 0);} 
+  
+    #tier-inputs label input {
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
+      margin-left:auto; 
+      margin-right:auto;
+      display: block;
+      accent-color: hsla(200, 100%, 25%, 1);  
+      width: 23px; 
+      height: 23px;
+    }
+    
+    tr {display: none}
+    tr.tier-checked.contains-filter {display: table-row}
+  
+    .zebraEven {
+      background-color: hsla(200, 15%, 98%, 1);
+    }
+    .zebraOdd {
+      background-color: hsla(200, 70%, 90%, 1);
+    }
+  
+   
+    #survey {
+      display: block;
+      position: relative;
+      margin-top: 3px;
+      padding: 8px;
+      background-color: hsla(200, 44%, 80%, 1);
+      border: 2px solid hsla(200, 30%, 65%, 1);
+      border-radius: 15px;
+      padding-bottom: 10px;
+    }
+  
+  
+  
+    #submInfo {
+      display: none;
+      background-color: hsla(50, 100%, 80%, .7);
+      top: 0;
+      margin-top: 5px;
+      position: relative;
+      border-radius: 8px;
+      padding: 4px;
+      z-index: 5;
+    
+    }
+  
+    #answers {
+      display: inline;
+      position: relative;
+      background-color: hsla(210, 50%, 55%, 1); 
+      border: 2px solid hsla(200, 60%, 35%, 1);
+      padding: 6px 0;
+      border-radius: 15px;
+      -ms-flex-line-pack: center;
+          align-content: center;
+    }
+  
+    #answers label {
+      display: inline;
+      width: 40%;
+      padding: 6px;
+      border-radius: 15px;
+      /* border: 2px solid hsla(210, 20%, 40%, 1); 
+      background-color: hsla(210, 20%, 40%, .5); */
+    }
+  
+    #answers label:hover{
+      background-color: hsla(45, 90%, 85%, 0.5);
+    }
+  
+    #submit {
+      
+      display: inline;
+      margin-left: 9px;
+      margin-right: 9px;
+      
+    }
+  
+    #submit input {
+      display: inline;
+      padding: 8px 16px;
+      border-radius: 15px;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    #submit input:hover:not([disabled]) {
+      background-color: hsla(45, 90%, 85%, 0.5);
+      -webkit-transform: translate(1px, 1px);
+          -ms-transform: translate(1px, 1px);
+              transform: translate(1px, 1px);
+    }
+  
+    #submit input:hover:active:not([disabled]) {
+      -webkit-transform: translate(2px, 2px);
+          -ms-transform: translate(2px, 2px);
+              transform: translate(2px, 2px);
+    }
+  
+    #textarea {position: relative;}
+  
+    #textarea textarea {
+      position: absolute;
+      left: 0;
+      background-color: hsla(200, 33%, 96%, 1);
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      border-radius: 10px;
+      -webkit-transform: scaleY(0%);
+          -ms-transform: scaleY(0%);
+              transform: scaleY(0%);
+      -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s; 
+    }
+  
+    #textarea textarea.magic {
+      -webkit-transform: scaleY(100%);
+          -ms-transform: scaleY(100%);
+              transform: scaleY(100%);
+    }
+  
+    @media screen and (max-width: 500px) {
+      #survey {display: block; line-height: 1.4em;}
+      #answers {display: block; margin: 15px;}
+      #answers label {display: inline;}
+      #submit {display: block;}
+      #submit input {display: block; width: 100%; margin: 15px; margin: auto;}
+      
+  
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
