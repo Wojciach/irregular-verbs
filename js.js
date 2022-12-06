@@ -218,6 +218,8 @@ function finalView() {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function() {
 
+        //console.log(this.responseText);
+        
         var resp = JSON.parse(this.responseText);
         document.querySelector('#submInfo').innerHTML = resp.msgPHP;
         document.querySelector('#submInfo').style.display = "block";

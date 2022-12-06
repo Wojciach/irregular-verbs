@@ -1,8 +1,13 @@
 <?php
+include_once('err.php');
 
+if(!isset($_GET['liked'])) {exit('seeya!');}
+
+require_once("db_passR.php");
 
 $msg = htmlspecialchars($_GET['feedback']);
 $like = htmlspecialchars($_GET['liked']);
+
 
 
 $ip1 = $_SERVER['REMOTE_ADDR'];
@@ -33,18 +38,21 @@ $ip2 = getIPAddress();
   $_GET['liked'] = "";
   $_GET['feedback'] = "";
  }
- 
 
-$mysqli = new mysqli("127.0.0.1", "root", "", "irregular-lcl");
-if($mysqli->connect_error) {
-  exit('Could not connect');
+
+try {
+  $mysqli = new mysqli($host, $user, $pass, $db_name);
+
+  $sql = "SELECT COUNT(ip) FROM messages WHERE ip = '$ip1'";
+  $result = $mysqli->query($sql);
+  $fetch = $result->fetch_assoc();
+  $fdbQ = $fetch['COUNT(ip)'];
+  $result->free_result();
+
 }
-
-
-$sql = "SELECT COUNT(ip) FROM messages WHERE ip = '$ip1'";
-$result = $mysqli->query($sql);
-$fetch = $result->fetch_assoc();
-$fdbQ = $fetch['COUNT(ip)'];
+catch(Exception $e) {
+  echo '{"msgPHP":"Database connection error."}'; exit();
+}
 
 function sendData($ip1, $msg, $like) {
   $sql = "INSERT INTO `messages`(`ip`, `msg`, `liked`) VALUES ('$ip1','$msg', '$like')";
@@ -61,14 +69,20 @@ $resp = '{"msgPHP":"'.$tooMany.'<br>'.$thanks.'","fdbQ":"'.$fdbQ.'"}';
 if($fdbQ >= 5) {echo $resp;}
 
 if($fdbQ < 5) {
-  sendData($ip1, $msg, $like);
+
+  try {
+    sendData($ip1, $msg, $like);
+  } 
+  catch(Exception $e) {
+    echo '{"msgPHP":"Database connection error: (wrong query)."}'; exit();
+  }
+
   $resp = '{"msgPHP":"'.$thanks.'","fdbQ":"'.$fdbQ.'"}';
   if($like=="yes") {$resp = '{"msgPHP":"'.$thanks.$happy.$happy.$happy.'","fdbQ":"'.$fdbQ.'"}';}
   if($like=="no") {$resp = '{"msgPHP":"'.$thanks.'","fdbQ":"'.$fdbQ.'"}';}
   
   echo $resp;
 }
-
 
 $mysqli->close();
 
