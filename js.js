@@ -284,18 +284,9 @@ function finalView() {
       
     }
 
-    function test() {
-      fetch("test.html")
-        .then(response => {return response.text();})
-        .then(html => {
-          document.getElementById('intro').innerHTML = html;
-        }).then(zmiana)
-    }
+
     
 
-    function zmiana() {
-      document.getElementById("zaglada").innerText = "Zaglada2ss";
-      }
    
 
     
