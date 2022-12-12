@@ -4,7 +4,9 @@
 <head>
 
 
-<!-- Google tag (gtag.js) -->
+
+
+<!-- Google tag (gtag.js) 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JTP6VD3Q5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,7 +15,7 @@
 
   gtag('config', 'G-5JTP6VD3Q5');
 </script>
-
+-->
 
 <title>Irregular Verbs English</title>
 <meta charset="UTF-8">
@@ -24,7 +26,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="shortcut icon" type="image/x-icon" href="img/svgsearch.svg">
 
-<link rel="stylesheet" href="cssPre.css">
+<link rel="stylesheet" href="css.css">
 <script src="js.js"></script>
 
 </head>
@@ -36,10 +38,10 @@
 
 
     
-    <main>
-
+<main id="main">
+    <article>
         <header>
-            <h1>Irregular Verbs</h1>
+            <h1 onclick="test()">Irregular Verbs</h1>
             <hr>
             <h2>A list of irregular verbs in English</h2><hr>
         </header>
@@ -49,6 +51,7 @@
             <p id="description">Here are 230 English irregular verbs. The verbs are arranged alphabetically in a convenient table. You can seek up the verb you need using the search bar. Verbs are categorised into five groups. Level 1 verbs are the most frequently used. Level 5 contains verbs which are rarely used. You can activate or deactivate level groups by checking or unchecking boxes to make the table more or less complex.</p>
 
         </section>
+        <section class="niceHover" onclick="startQuiz()" id="quizBTN"><p>Take a quiz</p></section>
         <hr>
 
         <section id="levDesc">
@@ -125,16 +128,56 @@
             </aside>
 
         </section>
-
-
     
+    </article>
+
     </main>
 
+    <article>
+
+        <div id="quizItself">
+
+            <div id="textTop"></div>
+            <div id="textCenter" class="niceHover"><div id="textBottom" class="niceHover"></div></div>
+            
+
+            <div class="X niceHover" onclick="endQuiz()">⛌</div>
+        </div>
+
+    </article>
+
+    
+
+    
 </body>
 
 <script>
     includeHTML();
     labDescShow();
+
+    
+    
+</script>
+
+<script type="module"> 
+    import {addLevelButtons} from "./lvls-add.js";
+    document.getElementById('textCenter').addEventListener("click", addLevelButtons);
+   
+ </script>
+
+ <script>
+
+     function woda() {
+
+        var range = document.getElementById("range");
+
+        for(i=0; i < range.value; i++) {
+            console.log(document.querySelectorAll('.tier-checked.contains-filter')[i])
+        }
+
+      
+    };
+
 </script>
 
 

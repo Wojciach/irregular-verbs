@@ -1,3 +1,6 @@
+
+
+
 function includeHTML() {
 
         var elmnt = document.querySelector("#verbstable tbody");
@@ -79,7 +82,7 @@ function includeHTML() {
 
 
 
-function addInfo(e){
+function addInfo(e){ 
   //how many table rows are vivible right now (including table header)
   var allVisible =  document.querySelectorAll('.tier-checked.contains-filter'); 
 
@@ -140,6 +143,7 @@ function finalView() {
   function rowsQuan(allViz) { 
     
     document.querySelectorAll('#tablDescription span')[0].innerHTML = allViz.length;
+    
   }
   // add extra information when all available verbs are visible or not a verb is visible
   function extraInfo(allViz) { 
@@ -236,4 +240,72 @@ function finalView() {
      
     }
 
+
+    function startQuiz() {
+      document.getElementById('main').style.display = 'none';
+      document.getElementById('quizItself').style.display = 'block';
+      addWelcome();
+    }
+
+    function endQuiz() {
+
+      document.getElementById('main').style.display = 'block';
+
+      var clone = document.getElementById('levDesc').cloneNode(true);
+
+      var before = document.getElementById('tableSection');
+      
+      var targetForInsert = document.querySelectorAll('#main > article')[0];
+      targetForInsert.insertBefore(clone, before);
+      labDescShow();
+      if (document.querySelectorAll('#levDesc').length > 1) document.querySelectorAll('#levDesc')[1].remove();
+
+
+      document.getElementById('quizItself').style.display = 'none';
+    }
+
+    var dd;
+
+    function addWelcome() {
+      fetch('./quiz.JSON', {cache: "no-store"})
+      .then(response => {return response.json();})
+      .then(data => { 
+        document.querySelector("#textCenter").innerHTML = data.welcome + " <br> " + data.clickk;
+        document.querySelector("#textCenter").addEventListener("click", whatL);
+        dd = data;
+      })
+      ;
+      
+    }
+
+    
+    function whatL() {
+      document.querySelector("#textTop").innerText = dd.whatLvls;
+      
+    }
+
+    function test() {
+      fetch("test.html")
+        .then(response => {return response.text();})
+        .then(html => {
+          document.getElementById('intro').innerHTML = html;
+        }).then(zmiana)
+    }
+    
+
+    function zmiana() {
+      document.getElementById("zaglada").innerText = "Zaglada2ss";
+      }
+   
+
+    
+
+ 
   
+  
+  
+  
+  
+      
+  
+        

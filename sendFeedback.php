@@ -1,9 +1,9 @@
 <?php
-include_once('err.php');
+//include_once('err.php');
 
 if(!isset($_GET['liked'])) {exit('seeya!');}
 
-require_once("db_passR.php");
+require_once("db_passD.php");
 
 $msg = htmlspecialchars($_GET['feedback']);
 $like = htmlspecialchars($_GET['liked']);
