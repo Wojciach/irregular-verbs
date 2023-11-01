@@ -1,35 +1,19 @@
 <?php
-//include_once('err.php');
+
+include_once('err.php');
 
 if(!isset($_GET['liked'])) {exit('seeya!');}
 
-require_once("db_passD.php");
+require_once("db_passR.php");
+require_once("getIP.php");
 
 $msg = htmlspecialchars($_GET['feedback']);
 $like = htmlspecialchars($_GET['liked']);
-
-
-
 $ip1 = $_SERVER['REMOTE_ADDR'];
 
 
-function getIPAddress() {  
-  //whether ip is from the share internet  
-   if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
-              $ip = $_SERVER['HTTP_CLIENT_IP'];  
-      }  
-  //whether ip is from the proxy  
-  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
-              $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
-   }  
-//whether ip is from the remote address  
-  else{  
-           $ip = $_SERVER['REMOTE_ADDR'];  
-   }  
-   return $ip;  
-}  
 
-$ip2 = getIPAddress();  
+$ip2 = getIP();  
 
  
  function clear() {

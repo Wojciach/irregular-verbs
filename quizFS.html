@@ -1,0 +1,39 @@
+<article id="quiz-FS">
+    <section>
+        <button id="X-FS" onclick="refresh()"> X </button>
+    </section>
+    <section id="verb-FS">
+        <div id="baseForm-FS">
+            <div id="inf-base-FS">Base Form</div>
+            <div id="theVerb-FS"><b>Habla</b></div>
+        </div>
+        <div id="pastSimple-FS">
+            <div id="inf-pSim-FS">Past Simple</div>
+            <div>
+                <input id="pastSimIn" onkeydown="focusNext(this.id)" type="text"/>
+            </div>
+        </div>
+        <div id="pastParticiple-FS">
+            <div id="inf-pPar-FS">Past Participle</div>
+            <div>
+                <input id="pastParIn" onkeydown="focusNext(this.id)" type="text"/>
+            </div>
+        </div>
+    </section>
+    <section id="counter-FS">
+        <button id="previous" onclick="counter(this.id)">PREVIOUS</button>
+        <span>1</span> &nbsp; / &nbsp; <span></span>
+        <button id="next" onclick="counter(this.id)">NEXT</button>
+    </section>
+    <section id="buttons-FS">
+            <div>
+                <button onclick="refresh()">Cancel</button>
+                <button onclick="clearrr()">Clear</button>
+                <button onclick="counter('next')">OK</button>
+            </div>
+            <div>
+                <button onclick="endQuiz()" id="END">End the quiz</button> 
+            </div> 
+    </section>
+</article>
+
