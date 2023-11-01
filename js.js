@@ -184,7 +184,7 @@ function color(x) {
     setTimeout( function() { window.scrollBy(0, 300);}, 260);
   }
 }
-
+/*
 function send() {
     var like = "";
     document.getElementsByName('like')[0].checked ? like = "yes" : like = "no";
@@ -204,8 +204,8 @@ function send() {
     document.querySelector('#submit input').disabled = "true";
     document.querySelectorAll('#answers input')[0].disabled = "true";
     document.querySelectorAll('#answers input')[1].disabled = "true";
-  }
-
+}
+*/
 function scrollDown() {
   ID("tableSection").scrollIntoView();
 }

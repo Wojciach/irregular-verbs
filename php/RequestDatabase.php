@@ -24,9 +24,9 @@ class RequestDatabase
         $result->free_result();
         return $amount;
     }
-    public function sendData($name, $phone, $email, $msg)
+    public function sendData($msg, $liked)
     {
-        $sql = "INSERT INTO `messages`(`ip`, `name`, `tel`, `email`, `msg`) VALUES ('$this->ip','$name', '$phone', '$email', '$msg')";
+        $sql = "INSERT INTO `messages`(`ip`, `msg`, `liked`) VALUES ('$this->ip','$msg', '$liked')";
         $this->mysqli->query($sql);
     }
     public function close() {
