@@ -1,16 +1,8 @@
-//node to be moved to the showing results view
-var th = QSA("#verbstable thead")[0].cloneNode(true);
-
 function quizFirstStep() {
-    /*
-    gtag('event', 'click', {
-        'event_category': 'Button',
-        'event_label': 'Submit button'
-    });
-    */
     ID('myInput').value = "";
     search();
     rem();
+
     var labels = document.querySelectorAll('#tier-inputs > label');
     labels.forEach(element => { 
         element.removeEventListener('mouseenter', slideDown);
@@ -51,18 +43,7 @@ function showVal(x) {
     }
 }
 
-function ID(id) {
-    return document.getElementById(id);
-}
 
-function QSA(qs) {
-    return document.querySelectorAll(qs);
-}
-
-ID("qQ").addEventListener("touchmove", () => showVal(ID("qQ").value));
-ID("qQ").addEventListener("touchend", () => showVal(ID("qQ").value));
-ID("qQ").addEventListener("click", () => showVal(ID("qQ").value));
-ID("qQ").addEventListener("mousemove", () => showVal(ID("qQ").value));
 
 function rem() {
     ID('tableSection').classList.remove("moveDown");

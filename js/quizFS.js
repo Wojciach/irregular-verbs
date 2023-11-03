@@ -1,17 +1,9 @@
-var verForQuiz;     //all verbs which from the quiz is going to be created (checked level)
-var fs_cntr = 0;    //which question (verb) is displayed at the moment
-var fs_qty = 0;     //information how many questions are in the current quiz
-var quizQuan = 0;   //how many questions are going to be in the quiz
-var arrayForQuiz = document.createElement('table');
-var arrUserInput = document.createElement('table');
-var ifRandom = true;    //if questions are going to be randomized
-
 function FSmode() {
     //capture all needed data before "fetch" and website reload
     //taking all the verbs that possibly may be used in the quiz
-    verForQuiz = document.querySelectorAll('.tier-checked.contains-filter');
+    verForQuiz = QSA('.tier-checked.contains-filter');
     //check how many questions in the quiz user wants
-    quizQuan = ID('qQ').value;
+    quizQuan = ID('questionQuantity').value;
     //check if user wants questions to be randomized
     ifRandom = QSA('input[name="randomized"]:checked')[0].value;
     fetch("./quizFS.html", { cache: "no-store" })
@@ -20,7 +12,7 @@ function FSmode() {
         .then(()=>{QSA("#counter-FS span")[1].innerHTML = fs_qty;})
         .then(loadData)
     fs_cntr = 0;
-    fs_qty = ID('qQ').value;
+    fs_qty = ID('questionQuantity').value;
 }
 
 function counter(id) {
@@ -115,17 +107,17 @@ function nextInput(fs_cntr) {
 
 //sets of conditions to make quiz interface operable by keyboard
 function focusNext(id) {
-    if(this.event.key == "Enter") {
+    if (this.event.key == "Enter") {
         if(id == 'pastSimIn') ID("pastParIn").focus();
             if(id == 'pastParIn') {
                 counter("next");
                 ID("pastSimIn").focus();
             } 
     }
-    else if(this.event.key == "ArrowLeft" && this.event.target.value == "") counter("previous");
-    else if(this.event.key == "ArrowRight" && this.event.target.value == "") counter("next");
-    else if(this.event.key == "ArrowUp")  ID("pastSimIn").focus();
-    else if(this.event.key == "ArrowDown")  ID("pastParIn").focus();
+    else if (this.event.key == "ArrowLeft" && this.event.target.value == "") counter("previous");
+    else if (this.event.key == "ArrowRight" && this.event.target.value == "") counter("next");
+    else if (this.event.key == "ArrowUp")  ID("pastSimIn").focus();
+    else if (this.event.key == "ArrowDown")  ID("pastParIn").focus();
 }
 
 function showButton() {
@@ -207,6 +199,7 @@ function getIndex(element) {
 }
 
 function showResults() {
+    //th = QSA("#verbstable thead")[0].cloneNode(true);
     var body = QSA('body')[0];
     body.innerHTML = "";
     var main = document.createElement("main");

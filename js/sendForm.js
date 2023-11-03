@@ -1,10 +1,7 @@
-
 function sendForm() {
-
     var like = "";
     document.getElementsByName('like')[0].checked ? like = "yes" : like = "no";
-    var str = document.getElementById('textarea').firstElementChild.value;
-
+    var str = ID('textarea').firstElementChild.value;
     const production = `sendFeedback.php?feedback=${str}&liked=${like}`;
 
     fetch(production, {
@@ -18,15 +15,15 @@ function sendForm() {
     .then(data => {
         //display the message from php
         console.log(data);
-        document.querySelector('#submInfo').innerHTML = data.msgPHP;
-        document.querySelector('#submInfo').style.display = "block";
+        QS('#submInfo').innerHTML = data.msgPHP;
+        QS('#submInfo').style.display = "block";
 
         //clear the form and disable it after submit
-        document.querySelector('#textarea textarea').value = "";
-        document.querySelector('#textarea textarea').style.display = "none";
-        document.querySelector('#submit input').disabled = "true";
-        document.querySelectorAll('#answers input')[0].disabled = "true";
-        document.querySelectorAll('#answers input')[1].disabled = "true";
+        QS('#textarea textarea').value = "";
+        QS('#textarea textarea').style.display = "none";
+        QS('#submit input').disabled = "true";
+        QSA('#answers input')[0].disabled = "true";
+        QSA('#answers input')[1].disabled = "true";
     })
     .catch((e) => {
         console.log("EEEERRRRRORRRR", e);

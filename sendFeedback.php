@@ -19,13 +19,11 @@ function clear() {
   $_GET['feedback'] = "";
 }
 
-
 try {
   $requestDatabase = new RequestDatabase("./php/db_passDev.php");
 } catch(Exception $e) {
   echo '{"msgPHP":"Database connection error."}'; exit();
 }
-
 
 $fdbQ = $requestDatabase->howManyMessages();
 $thanks = "<b>Thank you for your feedback.</b>";
