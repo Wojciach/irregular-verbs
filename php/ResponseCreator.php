@@ -12,9 +12,7 @@ class ResponseCreator
     public function __construct($like)
     {
         $this->like = $like;
-
         $this->responseOkThanks = $this->thanks . " " . (($like === "yes") ? $this->happyFaces : "");
-
     }
 
     public function getOkResponse()

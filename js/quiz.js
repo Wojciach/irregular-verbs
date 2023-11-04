@@ -33,18 +33,4 @@ function quizFirstStep() {
     }
 }
 
-function showVal(x) {
-    if(x === 0) {
-        ID('val').innerHTML = "You cannot start the quiz unless you choose at least one level";
-        ID('val').classList.add("dsplNothing");
-    } else {
-        ID('val').classList.remove("dsplNothing");
-        (x == 1) ? ID('val').innerHTML = x + " question" : ID('val').innerHTML = x + " questions";
-    }
-}
 
-
-
-function rem() {
-    ID('tableSection').classList.remove("moveDown");
-}
