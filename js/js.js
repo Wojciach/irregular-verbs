@@ -61,3 +61,15 @@ function addInfoToLevelLabel(e) {
 function scrollDown() {
   ID("tableSection").scrollIntoView();
 }
+
+function likeDislike(x) {
+  if(x.value == 'yes') {
+    x.parentElement.parentElement.style.backgroundColor = 'hsla(120, 100%, 30%, .7)';
+    document.getElementById('textarea').firstElementChild.classList.remove('magic');
+  } else if (x.value == 'no') {
+    x.parentElement.parentElement.style.backgroundColor = 'hsla(0, 100%, 40%, .7)';
+    document.getElementById('textarea').firstElementChild.classList.add('magic');
+    document.getElementById('textarea').firstElementChild.focus();
+    setTimeout( function() { window.scrollBy(0, 300);}, 260);
+  }
+}

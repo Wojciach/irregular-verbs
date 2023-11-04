@@ -25,7 +25,7 @@ class ResponseCreator
 
     public function getTooManyResponse($quantity)
     {
-        $this->responseArray['msgPHP'] = "You have sent $quantity requests already. <br> Please allow us time to process them.";
+        $this->responseArray['msgPHP'] = "You have sent $quantity requests already. <br> Please allow us time to process them. <br> $this->thanks";
         return json_encode($this->responseArray);
     }
 
