@@ -2,7 +2,7 @@ function sendForm() {
     var like = "";
     document.getElementsByName('like')[0].checked ? like = "yes" : like = "no";
     var str = ID('textarea').firstElementChild.value;
-    const production = `sendFeedback.php?feedback=${str}&liked=${like}`;
+    const production = `./php/sendFeedback.php?feedback=${str}&liked=${like}`;
 
     fetch(production, {
         mode: 'cors',
