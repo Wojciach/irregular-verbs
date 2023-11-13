@@ -1,0 +1,392 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  text-align: center;
+  scroll-behavior: smooth;
+  margin: auto;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 5px;
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+#scrollDown {
+  position: absolute;
+  display: block;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #c8e5f3;
+  font-size: large;
+}
+#main {
+  width: 100%;
+}
+h1 {
+  color: #2b4757;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+section {margin: 0;}
+#description {text-align: justify;}
+p {
+  display: inherit;
+}
+#tablDescription p:first-child {
+  margin-bottom: 0;
+}
+#lvlDescription, #tablDescription, #quizInfo {
+    border: 2px solid hsla(200, 30%, 65%, 1);
+    margin-top: 0;
+    width: 100%; /* */
+    max-width: 800px;
+}
+#quizControls {
+  margin-bottom: 10px;
+}
+#tableSection, #quiz, #header, #intro {transition: all .4s;}
+.moveDown {transform: translateY(70px) !important}
+.moveDownMore {transform: translateY(400px) !important}
+.moveUp {transform: translateY(-100px) !important}
+#tablDescription {
+  position: relative;
+  background-color: hsla(200, 44%, 80%, 1);
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+#levDesc {position: relative;}
+#lvlDescription {
+  width: 100%;
+  max-width: 800px;
+  position: absolute;
+  background-color: hsla(45, 90%, 85%, 0.2);
+  border-radius: 0 0 15px 15px;
+  transform: scaleY(0%);
+  transform-origin: 0 0;
+  transition: all .4s;
+  margin-bottom: 5px;
+}
+#quizInfo {
+  border-radius: 15px;
+  width: 100%;
+  position: absolute;
+  background-color: hsla(45, 90%, 85%, 0.2); 
+  border-radius: 15px;
+  transform: scaleY(0%);
+  transform-origin: 0 0;
+  transition: all .4s;
+  margin-bottom: 4px;
+} 
+.magic {
+  transform: scaleY(100%) !important; 
+}
+#stars {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  font-size: smaller;
+  max-width: 800px;
+}
+#qExplanation {
+  display: block;
+  position: relative;
+  top: 0px;
+  border-radius: 8px;
+  padding: 1px;
+  z-index: 5;
+}
+.dsplAll {
+  background-color: hsla(120, 100%, 30%, .7);
+}
+.dsplSomething {
+  background-color: hsla(50, 100%, 80%, .7);
+}
+.dsplNothing {
+  background-color: hsla(0, 100%, 40%, .7) !important;
+  border-radius: 15px;
+}
+#verbstable {
+  position: relative;
+  border-collapse: collapse; 
+  width: 100% !important;
+  max-width: 800px;
+  transition: all 1s;
+}
+#verbstable td, #verbstable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 33%;
+}
+#verbstable tr:hover {background-color:  hsla(45, 90%, 85%, 0.5) !important} 
+label:active {
+  transform: translate(1px, 1px);
+}
+#verbstable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #2b4757;
+  color: #c8e5f3;
+}
+#myInput {
+  background-image: url("../img/svgsearch.svg"); /* Add a search icon to input */
+  background-position: 0px 0px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  max-width: 800px;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  border-radius: 20px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+#tier-inputs {
+  display: flex;
+  margin-top: 15px;
+  width: 100%;
+}
+#tier-inputs label {
+  display: inline-block;
+  padding: 5px;
+  margin: 0 2px 0 2px;
+  width: 20%; 
+  border: 3px solid hsla(200, 100%, 35%, 1);
+  border-radius: 15px 15px 0 0;
+  justify-content: center;
+  cursor: pointer;
+}
+#tier-inputs label:first-child {margin: 0 2px 0 0;} 
+#tier-inputs label:last-child {margin: 0 0 0 2px;} 
+#tier-inputs label:hover {background-color: hsla(45, 90%, 85%, 0.5) !important;}
+#tier-inputs label {background-color: hsla(200, 20%, 90%, 0);} 
+#tier-inputs label.label-tier-checked:nth-child(1) {background-color: hsla(200, 20%, 90%, 1);} 
+#tier-inputs label.label-tier-checked:nth-child(2) {background-color: hsla(200, 40%, 80%, 1);} 
+#tier-inputs label.label-tier-checked:nth-child(3) {background-color: hsla(200, 60%, 70%, 1);}
+#tier-inputs label.label-tier-checked:nth-child(4) {background-color: hsla(200, 80%, 60%, 1);}
+#tier-inputs label.label-tier-checked:nth-child(5) {background-color: hsla(200, 100%, 50%, 1);} 
+#tier-inputs label input {
+  align-self: center;
+  margin-left:auto; 
+  margin-right:auto;
+  display: block;
+  accent-color: hsla(200, 100%, 25%, 1);  
+  width: 23px; 
+  height: 23px;
+}
+tr {display: none}
+tr.tier-checked.contains-filter {display: table-row;}
+/* thead {display: table-row-group !important;}  */
+thead tr {
+  display: table-row !important;
+}
+/* thead tr th {display: table-cell !important;} */
+.zebraEven {
+  background-color: hsla(200, 15%, 98%, 1);
+}
+.zebraOdd {
+  background-color: hsla(200, 70%, 90%, 1);
+}
+#survey {
+  display: block;
+  position: relative;
+  margin-top: 3px;
+  padding: 8px;
+  background-color: hsla(200, 44%, 80%, 1);
+  border: 2px solid hsla(200, 30%, 65%, 1);
+  border-radius: 15px;
+  padding-bottom: 10px;
+}
+#submInfo {
+  display: none;
+  background-color: hsla(50, 100%, 80%, .7);
+  top: 0;
+  margin-top: 5px;
+  position: relative;
+  border-radius: 8px;
+  padding: 4px;
+  z-index: 5;
+}
+#answers {
+  display: inline;
+  position: relative;
+  background-color: hsla(210, 50%, 55%, 1); 
+  border: 2px solid hsla(200, 60%, 35%, 1);
+  padding: 6px 0;
+  border-radius: 15px;
+  align-content: center;
+}
+#answers label {
+  display: inline;
+  width: 40%;
+  padding: 6px;
+  border-radius: 15px;
+}
+#answers input:enabled + label:hover {
+  background-color: hsla(45, 90%, 85%, 0.5);
+}
+#answers.greyedOut {
+  color: grey;
+  background-color: hsla(210, 30%, 60%, 1); ;
+  border: 2px solid hsla(200, 40%, 40%, 1);
+}
+#submit {
+  display: inline;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+#submit input {
+  display: inline;
+  padding: 8px 16px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#submit input:hover:not([disabled]) {
+  background-color: hsla(45, 90%, 85%, 0.5);
+  transform: translate(1px, 1px);
+}
+#submit input:hover:active:not([disabled]) {
+  transform: translate(2px, 2px);
+}
+#textarea {position: relative;}
+#textarea textarea {
+  position: absolute;
+  left: 0;
+  background-color: hsla(200, 33%, 96%, 1);
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  border-radius: 10px;
+  transform: scaleY(0%);
+  transform-origin: 0 0;
+  transition: all .4s; 
+}
+@media screen and (max-width: 500px) {
+  #survey {display: block; line-height: 1.4em;}
+  #answers {display: block; margin: 15px;}
+  #answers label {display: inline;}
+  #submit {display: block;}
+  #submit input {display: block; width: 100%; margin: 15px; margin: auto;}
+}
+#quiz {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+}
+#quizBTN {
+  background-color: #c8e5f3;
+  margin: auto;
+  margin-bottom: 5px;
+  width: 50%;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#quizBTN p {margin: 0;}
+.niceHover:hover {
+  background-color: hsla(45, 90%, 85%, 0.3) !important;
+  transform: translate(1px, 1px);
+  cursor: pointer;
+}
+#control_2, #control_1, #control_3 {
+  display: flex;
+  border: 2px solid hsla(200, 30%, 65%, 1);
+  border-radius: 15px;
+  background-color: hsla(45, 90%, 85%, 1);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+#control_1 p {
+  display: block;
+  width: 100%;
+}
+#c_1 {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+#val {
+  display: block;
+  width: 100%;
+}
+#control_2 p {
+  display: inline;
+  width: 40%;
+}
+#c_1 > span {
+    display: inline-block;
+    width: 6%;
+    margin: 0;
+}
+#c_1 > div{
+  display: inline-block;
+  width: 80%;
+  margin: 0;
+}
+#control_2 > p, #control_2 > div {
+  display: inline;
+  position: relative;
+  width: auto;
+}
+#c_2 {
+  margin: 12px 0;
+}
+#c_2 > label {
+  display: block;
+  text-align: left;
+  margin: 0;
+}
+#c_2 > label:last-child > input {
+  margin-right: 25px;
+  margin-left: 3px;
+}
+#c_2 > label:last-child {
+  padding-top: 12px;
+}
+#c_3 {
+  padding: 12px;
+  border-radius: 15px;
+  margin: 15px;
+}
+.underline {
+  border-bottom: 2px black solid;
+}
+.topLeftLine {
+  border-left: 2px black solid;
+}
+.paddingLeft {
+  padding-left: 10px;
+}
+ .paddingRight {
+  padding-right: 10px;
+}
+button {
+  border: 2px solid black !important;
+  border-radius: 15px !important;
+  padding: 10px;
+  margin: 5px;
+  font-size: large;
+}
+button:hover {
+  background-color: hsla(45, 90%, 85%, 0.3) !important;
+  transform: translate(1px, 1px);
+  cursor: pointer;
+}

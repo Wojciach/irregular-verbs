@@ -1,184 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Irregular Verbs English</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="List of 230 english irregular verbs. Full list in comrotable table.">
+        <meta name="keywords" content="irregular verbs, english, grammar, irregular verbs list, irregular verbs table, past simple, past participle, base form">
+        <meta name="author" content="WojciechWWW">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="shortcut icon" type="image/x-icon" href="img/svgsearch.svg">
 
-<head>
+        <link rel="stylesheet" href="./css/css.css">
+        <link rel="stylesheet" href="./css/quiz-FS.css">
 
-
-
-
-<!-- Google tag (gtag.js) 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JTP6VD3Q5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5JTP6VD3Q5');
-</script>
--->
-
-<title>Irregular Verbs English</title>
-<meta charset="UTF-8">
-<meta name="description" content="List of 230 english irregular verbs. Full list in comrotable table.">
-<meta name="keywords" content="irregular verbs, english, grammar, irregular verbs list, irregular verbs table, past simple, past participle, base form">
-<meta name="author" content="WojciechWWW">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="shortcut icon" type="image/x-icon" href="img/svgsearch.svg">
-
-<link rel="stylesheet" href="css.css">
-<script src="js.js"></script>
-
-</head>
-
-
-<body>
-
-
-
-
-    
-<main id="main">
-    <article>
-        <header>
-            <h1>Irregular Verbs</h1>
-            <hr>
-            <h2>A list of irregular verbs in English</h2><hr>
-        </header>
-
-        <section id="intro">
-
-            <p id="description">Here are 230 English irregular verbs. The verbs are arranged alphabetically in a convenient table. You can seek up the verb you need using the search bar. Verbs are categorised into five groups. Level 1 verbs are the most frequently used. Level 5 contains verbs which are rarely used. You can activate or deactivate level groups by checking or unchecking boxes to make the table more or less complex.</p>
-
-        </section>
-        <section class="niceHover" onclick="startQuiz()" id="quizBTN"><p>Take a quiz</p></section>
-        <hr>
-
-        <section id="levDesc">
-
-            <div id="tier-inputs">
-                
-                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">
-                    Level 1</label>
-                
-                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">
-                    Level 2</label>
-                    
-                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">
-                    Level 3</label>
-
-                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">
-                    Level 4</label>
-
-                    <label><input checked onchange="viz(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">
-                    Level 5</label>
-
-            </div>
-
-            <div id="lvlDescription" >
-                <p><b><span>LevelName</span> :</b> Contains: <span>Quantity</span> irregular verbs.</p>
-                <div id="stars">text</div>
-            </div>
-
-
-        </section>
-
-        <section id="tableSection">
-
-            <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
-
-            <div id="tablDescription" >
-                <p> Right now the table has <span style="font-weight: bold">25</span> out of 230 irregular verbs visible. <i>(switched on)</i></p> 
-                <span id="qExplanation"></span>
-            </div>
-
-            <table id="verbstable">
-                <thead>
-                <tr>
-                <th>Base Form</th>
-                <th>Past Simple (V2)</th>
-                <th>Past Participle (V3)</th>
-                </tr>
-                </thead>
-
-                <tbody>  </tbody>
-
-            </table>
-
-            <aside>
-                <div id="survey">
-                    Do you like this website?
-                    <div class="red" id="answers">
-                        
-                        <label for="age1"><input checked="true" onchange="color(this)" type="radio" id="age1" name="like" value="yes">Yes</label>
-                        <label for="age2"><input  onchange="color(this)" type="radio" id="age2" name="like" value="no">No</label>
-                        
+        <script src="./js/js.js"></script>
+        <script src="./js/includeTable.js"></script>
+        <script src="./js/sendForm.js"></script>
+        <script src="./js/finalView.js"></script>
+        <script src="./js/labDescShow.js"></script>
+        <script src="./js/quizGlobalVaribles.js" defer></script>
+        <script src="./js/quiz.js"></script>
+        <script src="./js/quizFirstStep.js"></script>
+        <script src="./js/addListeners.js" defer></script>
+        <script src="./js/utilityFunctions.js"></script>
+        <script src="./js/runAfterParsing.js" defer></script>
+    </head>
+    <body>
+        <button id="scrollDown" onclick="scrollDown()">&#8650;</button>
+        <main id="main">
+            <article>
+                <header id="header">
+                    <h1>Irregular Verbs</h1>
+                    <hr>
+                    <h2>A list of irregular verbs in English</h2>
+                    <hr>
+                </header>
+                <section id="intro">
+                    <p id="description">Here are 230 English irregular verbs. The verbs are arranged alphabetically in a convenient table. You can seek up the verb you need using the search bar. Verbs are categorised into five groups. Level 1 verbs are the most frequently used. Level 5 contains verbs which are rarely used. You can activate or deactivate level groups by checking or unchecking boxes to make the table more or less complex.</p>
+                </section>
+                <section id="quiz">
+                    <button id="quizBTN" class="niceHover" onclick="quizFirstStep()">Take a quiz</button>
+                    <div id="quizInfo">
+                        <p>Use buttons below to include or exclude verbs in the quiz.</p>
+                        <div id="quizControls">
+                            <div id="control_1">
+                                <p>How many questions in the quiz would you like to have?</p>
+                                <div id="c_1">
+                                    <span>min 1</span>
+                                    <div>
+                                        <input id="questionQuantity" type="range" min="1" max="10" value="22"/>
+                                    </div> 
+                                    <span id="max"></span>
+                                </div>
+                                <span id="val"></span>
+                            </div>
+                            <div id="control_2">
+                                <p class="underline paddingRight">Questions order</p>
+                                <div id="c_2">
+                                    <label class="underline paddingLeft" for="order">
+                                        <input type="radio" id="order" name="randomized" value="false">alphabetical
+                                    </label>
+                                    <label class="underline paddingLeft topLeftLine" for="order2">
+                                        <input checked  type="radio" id="order2" name="randomized" value="true">random
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="control_3">
+                                <div id="c_3">
+                                    <button id="startQuiz" class="niceHover" onclick="FSmode()">Start the quiz</button>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
-                    <div id="submit">
-                        <input type="submit" value="Send" onclick="send()">
+                </section>
+                <section id="levDesc">
+                    <div id="tier-inputs">
+                        <label>
+                            <input checked onchange="showOrHideVerbs(this.id)" type="checkbox" id="tier-1-in" name="namecheck1" value="tier-1">Level 1
+                        </label>
+                        <label>
+                            <input checked onchange="showOrHideVerbs(this.id)" type="checkbox" id="tier-2-in" name="namecheck2" value="tier-2">Level 2
+                        </label>
+                            <label>
+                                <input checked onchange="showOrHideVerbs(this.id)" type="checkbox" id="tier-3-in" name="namecheck3" value="tier-3">Level 3
+                        </label>
+                        <label>
+                            <input checked onchange="showOrHideVerbs(this.id)" type="checkbox" id="tier-4-in" name="namecheck4" value="tier-4">Level 4
+                        </label>
+                        <label>
+                            <input checked onchange="showOrHideVerbs(this.id)" type="checkbox" id="tier-5-in" name="namecheck5" value="tier-5">Level 5
+                        </label>
                     </div>
-                    
-                    <div id="submInfo">
-                        
+                    <div id="lvlDescription" >
+                        <p>
+                            <b><span>Level 1</span> :</b> Contains: <span>37</span> irregular verbs.
+                        </p>
+                        <div id="stars">Commonness: ★★★★★ (most common)</div>
                     </div>
-                </div>
-                <div id="textarea">
-                    <textarea rows="4" placeholder=" What can we improve?"></textarea>
-                </div>
-            </aside>
-
-        </section>
-    
-    </article>
-
-    </main>
-
-    <article>
-
-        <div id="quizItself">
-
-            <div id="textTop"></div>
-            <div id="textCenter" class="niceHover"><div id="textBottom" class="niceHover"></div></div>
-            
-
-            <div class="X niceHover" onclick="endQuiz()">⛌</div>
-        </div>
-
-    </article>
-
-    
-
-    
-</body>
-
-<script>
-    includeHTML();
-    labDescShow();
-
-    
-    
-</script>
-
-<script type="module"> 
-    import {addLevelButtons} from "./lvls-add.js";
-    document.getElementById('textCenter').addEventListener("click", addLevelButtons);
-   
- </script>
-
- <script>
-
-     function woda() {
-
-        var range = document.getElementById("range");
-
-        for(i=0; i < range.value; i++) {
-            console.log(document.querySelectorAll('.tier-checked.contains-filter')[i])
-        }
-
-      
-    };
-
-</script>
-
-
+                </section>
+                <section id="tableSection">
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a verb...">
+                    <div id="tablDescription" >
+                        <p>
+                            Right now the table has <span style="font-weight: bold">25</span> out of 230 irregular verbs visible. <i>(switched on)</i>
+                        </p> 
+                        <span id="qExplanation"></span>
+                    </div>
+                    <table id="verbstable">
+                        <thead>
+                            <tr>
+                                <th>Base Form</th>
+                                <th>Past Simple</th>
+                                <th>Past Participle</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <aside>
+                        <div id="survey">
+                            Do you like this website?
+                            <div class="red" id="answers">
+                                <label for="likeId">
+                                    <input
+                                    checked="true"
+                                    onchange="likeDislike(this)"
+                                    type="radio" id="likeId"
+                                    name="like"
+                                    value="yes">
+                                    Yes
+                                </label>
+                                <label for="dislikeID">
+                                    <input
+                                    onchange="likeDislike(this)"
+                                    type="radio" id="dislikeId"
+                                    name="like"
+                                    value="no">
+                                    No
+                                </label>
+                            </div>
+                            <div id="submit">
+                                <input type="submit" value="Send" onclick="sendForm()">
+                            </div>
+                            <div id="submInfo"></div>
+                        </div>
+                        <div id="textarea">
+                            <textarea rows="4" placeholder=" What can we improve?"></textarea>
+                        </div>
+                    </aside>
+                </section>
+            </article>
+        </main>
+    </body>
 </html>
