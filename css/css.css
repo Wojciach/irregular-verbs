@@ -234,8 +234,13 @@ thead tr {
   padding: 6px;
   border-radius: 15px;
 }
-#answers label:hover{
+#answers input:enabled + label:hover {
   background-color: hsla(45, 90%, 85%, 0.5);
+}
+#answers.greyedOut {
+  color: grey;
+  background-color: hsla(210, 30%, 60%, 1); ;
+  border: 2px solid hsla(200, 40%, 40%, 1);
 }
 #submit {
   display: inline;

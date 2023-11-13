@@ -10,38 +10,42 @@ header('Content-Type: application/json');
 use function Wojciach\Wojciach\getIP;
 use  Wojciach\Wojciach\RequestDatabase;
 
-if(!isset($_GET['liked'])) {exit('seeya!');}
-
-$msg = htmlspecialchars($_GET['feedback']);
-$like = htmlspecialchars($_GET['liked']);
- 
-function clear() {
-  $msg = "";
-  $like = "";
-  $_GET['liked'] = "";
-  $_GET['feedback'] = "";
-}
-require_once("./ResponseCreator.php");
-$responseCreator = new ResponseCreator($like);
-
 try {
-  require_once("./RequestDatabase.php");
-  $requestDatabase = new RequestDatabase("./db_passDev.php");
+
+    if(!isset($_GET['liked'])) {exit('seeya!');}
+
+    $msg = htmlspecialchars($_GET['feedback']);
+    $like = htmlspecialchars($_GET['liked']);
+    
+    require_once("./ResponseCreator.php");
+    $responseCreator = new ResponseCreator($like);
+
+    try {
+        require_once("./RequestDatabase.php");
+        $requestDatabase = new RequestDatabase("./passes/db_passProd.php");
+    } catch(Exception $e) {
+        echo $responseCreator->getDatabaseErrorResponse(); 
+        exit();
+    }
+
+    if($requestDatabase->howManyMessages() >= 5) {
+        echo $responseCreator->getTooManyResponse(5); 
+        exit();
+    }
+
+    if($requestDatabase->howManyMessages() < 5) {
+        try {
+            $requestDatabase->sendData($msg, $like);
+            echo $responseCreator->getOkResponse(); exit();
+        } catch(Exception $e) {
+            echo $responseCreator->getDatabaseErrorResponse(); exit();
+        }
+    }
+
+    $requestDatabase->close();
+
 } catch(Exception $e) {
-  echo $responseCreator->getDatabaseErrorResponse(); exit();
+    $responseArray = ['msgPHP' => 'Sorry! <br> Database connection error.'];
+    echo json_encode($responseArray);
+    exit();
 }
-
-if($requestDatabase->howManyMessages() >= 5) {
-  echo $responseCreator->getTooManyResponse(5); exit();
-}
-
-if($requestDatabase->howManyMessages() < 5) {
-  try {
-    $requestDatabase->sendData($msg, $like);
-    echo $responseCreator->getOkResponse(); exit();
-  } catch(Exception $e) {
-    echo $responseCreator->getDatabaseErrorResponse(); exit();
-  }
-}
-
-$requestDatabase->close();

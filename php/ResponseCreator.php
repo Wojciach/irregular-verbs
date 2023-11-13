@@ -6,7 +6,7 @@ class ResponseCreator
    private $happyFaces = "&#9786;&#9786;&#9786;";
    private $sadFaces = "&#9785;&#9785;&#9785;";
    private $responseOkThanks;
-   private $responseDatabaseError = "Sorry! <br> Database connection error.";
+   private $responseDatabaseError = "Sorry! ;( <br> Database connection error.";
    private $responseArray = ['msgPHP' => ''];
 
     public function __construct($like)
